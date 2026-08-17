@@ -1,0 +1,28 @@
+# Sensitive files
+*.pem
+*.key
+*.zip
+
+# Environment files
+.env
+.env.*
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+build/
+dist/
+*.apk
+*.ipa
+
+# Dependencies
+node_modules/
+.pub-cache/
+
+# IDE
+.idea/
+.vscode/
+*.iml

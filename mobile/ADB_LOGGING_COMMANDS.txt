@@ -1,0 +1,65 @@
+# LOGS DEKHNE KE PROPER COMMANDS
+
+## Simple Method - Sabhi Logs Dekhen (No Filter)
+
+```bash
+adb logcat
+```
+
+Yeh sabhi logs dikhayega. Bhot zyada output aayega but aap 429 error dekh paayenge.
+
+## Better Method - Flutter Logs Only
+
+```bash
+adb logcat flutter:V *:S
+```
+
+## Best Method - Save to File and Search
+
+```bash
+adb logcat > app_logs.txt
+```
+
+Phir 3-5 minutes app use karein, aur file mein search karein:
+- Search: "429"
+- Search: "DioException"
+- Search: "bad response"
+
+## Windows Specific Commands
+
+### Command Prompt mein:
+```cmd
+adb logcat | findstr /C:"429" /C:"DioException" /C:"WalletProvider" /C:"API"
+```
+
+### PowerShell mein:
+```powershell
+adb logcat | Select-String -Pattern "429|DioException|API|WalletProvider"
+```
+
+## Without Emoji Filter
+
+```bash
+adb logcat | findstr "Request Error FLOOD Rate Wallet API"
+```
+
+---
+
+## YA YEH TRY KAREIN (Sabse Simple)
+
+1. Yeh command run karein:
+```bash
+adb logcat *:E
+```
+Yeh sirf ERROR logs dikhayega
+
+2. App use karein aur jab 429 error aaye, uske baad logs check karein
+
+3. Ya phir:
+```bash
+adb logcat | findstr "429"
+```
+
+---
+
+Kya ab logs aa rahe hain?

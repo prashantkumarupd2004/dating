@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "544992061153",
+    "project_id": "milan-46325",
+    "storage_bucket": "milan-46325.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544992061153:android:8c9bb411639c18b7ae79a0",
+        "android_client_info": {
+          "package_name": "com.milan.datingapp.dating_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544992061153-cj1g07grku879hj6esvtk4o348vm1loc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.milan.datingapp.dating_app",
+            "certificate_hash": "d94204f0d5d69e55c3ae9d247eb45267814bb40a"
+          }
+        },
+        {
+          "client_id": "544992061153-7hrtukrdr6u0losp9hof7p5mn4furo8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM-k-QF4T-TOZjGF-pzDPTD_wsjz6l95s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544992061153-7hrtukrdr6u0losp9hof7p5mn4furo8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
