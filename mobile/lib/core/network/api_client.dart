@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dio/dio.dart';
 import '../constants/app_constants.dart';
 import '../storage/secure_storage.dart';
@@ -18,6 +19,7 @@ class ApiClient {
       baseUrl: baseUrl,
       connectTimeout: const Duration(seconds: 15),
       receiveTimeout: const Duration(seconds: 30),
+      sendTimeout: const Duration(seconds: 30),
       headers: {'Content-Type': 'application/json'},
     ));
 
@@ -61,14 +63,16 @@ class ApiClient {
           debugPrint('🔐 [401] Token expired, attempting refresh...');
 
           try {
-            // If already refreshing, wait for it to complete
+            // If already refreshing, queue until done
             if (_isRefreshing) {
-              debugPrint('🔐 [401] Already refreshing, waiting...');
-              await Future.delayed(const Duration(milliseconds: 500));
+              debugPrint('🔐 [401] Already refreshing, queuing retry...');
+              final completer = Completer<void>();
+              _refreshQueue.add(() => completer.complete());
+              await completer.future;
               final token = await SecureStorage.getAccessToken();
+              if (token == null) return handler.next(error);
               error.requestOptions.headers['Authorization'] = 'Bearer $token';
               final response = await _dio.fetch(error.requestOptions);
-              debugPrint('✅ [401] Retry after refresh succeeded');
               return handler.resolve(response);
             }
 
@@ -121,6 +125,8 @@ class ApiClient {
       rethrow;
     } finally {
       _isRefreshing = false;
+      for (final cb in _refreshQueue) { cb(); }
+      _refreshQueue.clear();
     }
   }
 

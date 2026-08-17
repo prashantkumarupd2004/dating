@@ -14,8 +14,11 @@ class SocketService {
   bool _isReconnecting = false;
 
   Future<void> connect() async {
+    if (_socket?.connected == true) return; // already connected — skip
     final token = await SecureStorage.getAccessToken();
     if (token == null) return;
+    // Disconnect any existing (disconnected) socket before creating a new one
+    _socket?.dispose();
 
     _socket = io.io(
       socketUrl,
@@ -23,10 +26,7 @@ class SocketService {
           .setTransports(['websocket'])
           .setAuth({'token': token})
           .enableAutoConnect()
-          .enableReconnection()
-          .setReconnectionAttempts(10)
-          .setReconnectionDelay(2000)
-          .setReconnectionDelayMax(10000)
+          .disableReconnection()
           .build(),
     );
 

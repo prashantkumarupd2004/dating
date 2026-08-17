@@ -185,6 +185,9 @@ export const acceptCall = async (callId: string, listenerId: string) => {
 export const endCall = async (callId: string, endedBy: string) => {
   const call = await prisma.call.findUnique({ where: { id: callId } });
   if (!call) throw new AppError(404, 'Call not found');
+  if (call.userId !== endedBy && call.listenerId !== endedBy) {
+    throw new AppError(403, 'Not authorized to end this call');
+  }
   if (!['RINGING', 'ACCEPTED', 'IN_PROGRESS'].includes(call.status)) {
     throw new AppError(409, 'Call cannot be ended in its current state');
   }

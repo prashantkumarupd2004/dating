@@ -185,7 +185,7 @@ class _AudioCallScreenState extends State<AudioCallScreen>
   }
 
   void _handleCallEnded(dynamic data) {
-    if (_ended || data['callId'] != _callId) return;
+    if (_ended || data is! Map || data['callId'] != _callId) return;
     _ended = true;
     _timer?.cancel();
     _connectionTimeout?.cancel();
@@ -372,51 +372,57 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     if (_loading) return _loadingScreen();
     if (_error != null) return _errorScreen();
 
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        extendBodyBehindAppBar: true,
-        body: Container(
-          decoration: const BoxDecoration(gradient: CallColors.bgGradient),
-          child: Stack(
-            children: [
-              // ── Radial ambient glow ────────────────────────────────────
-              Positioned.fill(child: CustomPaint(painter: _AmbientGlowPainter())),
-              // ── Main content ───────────────────────────────────────────
-              SafeArea(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 8),
-                    _buildLogo(),
-                    const SizedBox(height: 6),
-                    _buildConnectingStatus(),
-                    const SizedBox(height: 20),
-                    _buildCallerAvatar(listenerName, photo, city, age),
-                    const SizedBox(height: 16),
-                    Expanded(child: _buildConnectionVisualization()),
-                    _buildUserAvatar(isListener),
-                    const SizedBox(height: 20),
-                    _buildHeadphoneTip(),
-                    const SizedBox(height: 12),
-                    _buildCallControls(),
-                    const SizedBox(height: 8),
-                    // Android gesture bar
-                    Center(
-                      child: Container(
-                        width: 120,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(2),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _endCall();
+      },
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          extendBodyBehindAppBar: true,
+          body: Container(
+            decoration: const BoxDecoration(gradient: CallColors.bgGradient),
+            child: Stack(
+              children: [
+                // ── Radial ambient glow ────────────────────────────────────
+                Positioned.fill(child: CustomPaint(painter: _AmbientGlowPainter())),
+                // ── Main content ───────────────────────────────────────────
+                SafeArea(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      _buildLogo(),
+                      const SizedBox(height: 6),
+                      _buildConnectingStatus(),
+                      const SizedBox(height: 20),
+                      _buildCallerAvatar(listenerName, photo, city, age),
+                      const SizedBox(height: 16),
+                      Expanded(child: _buildConnectionVisualization()),
+                      _buildUserAvatar(isListener),
+                      const SizedBox(height: 20),
+                      _buildHeadphoneTip(),
+                      const SizedBox(height: 12),
+                      _buildCallControls(),
+                      const SizedBox(height: 8),
+                      // Android gesture bar
+                      Center(
+                        child: Container(
+                          width: 120,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.3),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                  ],
+                      const SizedBox(height: 8),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

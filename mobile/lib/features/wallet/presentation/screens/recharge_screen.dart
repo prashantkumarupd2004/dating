@@ -17,6 +17,7 @@ class RechargeScreen extends StatefulWidget {
 class _RechargeScreenState extends State<RechargeScreen> {
   List<CoinPackage> _packages = [];
   bool _loading = true;
+  bool _purchasing = false;
   late Razorpay _razorpay;
   int _purchasedCoins = 0;
 
@@ -32,7 +33,7 @@ class _RechargeScreenState extends State<RechargeScreen> {
   Future<void> _loadPackages() async {
     try {
       final resp = await api.get(ApiEndpoints.coinPackages);
-      final list = resp.data['data'] as List<dynamic>;
+      final list = (resp.data['data'] as List<dynamic>?) ?? [];
       setState(() {
         _packages = list.map((j) => CoinPackage.fromJson(j)).toList();
         _loading = false;
@@ -43,6 +44,8 @@ class _RechargeScreenState extends State<RechargeScreen> {
   }
 
   Future<void> _purchase(CoinPackage pkg) async {
+    if (_purchasing) return;
+    setState(() => _purchasing = true);
     try {
       final resp = await api.post(ApiEndpoints.createOrder, data: {'coinPackageId': pkg.id});
       final data = resp.data['data'];
@@ -64,6 +67,8 @@ class _RechargeScreenState extends State<RechargeScreen> {
           const SnackBar(content: Text('Failed to create order'), backgroundColor: AppColors.error),
         );
       }
+    } finally {
+      if (mounted) setState(() => _purchasing = false);
     }
   }
 
@@ -77,12 +82,22 @@ class _RechargeScreenState extends State<RechargeScreen> {
       walletProvider.addCoins(_purchasedCoins.toDouble());
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Coins added successfully! 🎉'), backgroundColor: AppColors.success),
+          const SnackBar(content: Text('Coins added successfully!'), backgroundColor: AppColors.success),
         );
         context.pop();
       }
     } catch (_) {
       walletProvider.fetchBalance(force: true);
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Text('Payment Received'),
+            content: const Text('Payment was received but coin credit failed. Please contact support with your payment ID.'),
+            actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('OK'))],
+          ),
+        );
+      }
     }
   }
 

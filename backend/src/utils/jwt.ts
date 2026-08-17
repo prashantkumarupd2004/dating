@@ -26,7 +26,7 @@ export const signRefreshToken = (payload: Omit<JwtPayload, 'type'>): string =>
   } as SignOptions);
 
 export const signAdminToken = (payload: AdminJwtPayload): string =>
-  jwt.sign(payload, config.jwt.accessSecret, { expiresIn: '8h' } as SignOptions);
+  jwt.sign(payload, config.jwt.adminSecret, { expiresIn: '8h' } as SignOptions);
 
 export const verifyAccessToken = (token: string): JwtPayload =>
   jwt.verify(token, config.jwt.accessSecret) as JwtPayload;
@@ -35,4 +35,4 @@ export const verifyRefreshToken = (token: string): Omit<JwtPayload, 'type'> =>
   jwt.verify(token, config.jwt.refreshSecret) as Omit<JwtPayload, 'type'>;
 
 export const verifyAdminToken = (token: string): AdminJwtPayload =>
-  jwt.verify(token, config.jwt.accessSecret) as AdminJwtPayload;
+  jwt.verify(token, config.jwt.adminSecret) as AdminJwtPayload;

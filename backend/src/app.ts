@@ -24,6 +24,7 @@ import settingsRoutes from './modules/settings/settings.routes';
 
 const app = express();
 
+app.set('trust proxy', 1);
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' }, // allow audio/media cross-origin
 }));
@@ -35,7 +36,7 @@ app.use(cors({
     if (config.allowedOrigins.includes(origin)) return callback(null, true);
     // Allow any origin in development
     if (config.env !== 'production') return callback(null, true);
-    callback(null, true); // Allow all for now — tighten in production
+    callback(new Error('Not allowed by CORS')); // Allow all for now — tighten in production
   },
   credentials: true,
 }));
@@ -100,6 +101,7 @@ app.use('/api/support', supportRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/settings', settingsRoutes);
 
+app.use((_req, res) => res.status(404).json({ success: false, message: 'Route not found' }));
 app.use(errorHandler);
 
 export default app;

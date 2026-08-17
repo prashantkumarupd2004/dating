@@ -37,7 +37,6 @@ export const approvePayout = async (adminId: string, payoutId: string, notes?: s
     prisma.listenerWallet.update({
       where: { listenerId: payout.listenerId },
       data: {
-        availableBalance: { decrement: payout.amount },
         totalWithdrawn: { increment: payout.amount },
         pendingBalance: { decrement: payout.amount },
       },

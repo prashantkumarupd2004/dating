@@ -34,6 +34,8 @@ class _IncomingCallScreenState extends State<IncomingCallScreen>
   late final Animation<double> _pulse3;
   late final Animation<double> _btnScale;
 
+  bool _responding = false;
+
   @override
   void initState() {
     super.initState();
@@ -243,7 +245,11 @@ class _IncomingCallScreenState extends State<IncomingCallScreen>
                       gradient: const LinearGradient(
                           colors: [Color(0xFFDC2626), Color(0xFFEF4444)]),
                       shadowColor: const Color(0xFFEF4444),
-                      onTap: widget.onDecline,
+                      onTap: () {
+                        if (_responding) return;
+                        setState(() => _responding = true);
+                        widget.onDecline();
+                      },
                     ),
 
                     const SizedBox(width: 50),
@@ -259,7 +265,11 @@ class _IncomingCallScreenState extends State<IncomingCallScreen>
                         gradient: const LinearGradient(
                             colors: [Color(0xFF16A34A), Color(0xFF22C55E)]),
                         shadowColor: const Color(0xFF22C55E),
-                        onTap: widget.onAccept,
+                        onTap: () {
+                          if (_responding) return;
+                          setState(() => _responding = true);
+                          widget.onAccept();
+                        },
                       ),
                     ),
                   ],

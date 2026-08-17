@@ -32,7 +32,7 @@ export const authenticate = async (
       select: { id: true, isActive: true, isBanned: true, isSuspended: true },
     });
 
-    if (!user || !user.isActive || user.isBanned) {
+    if (!user || !user.isActive || user.isBanned || user.isSuspended) {
       sendForbidden(res, 'Account is inactive or banned');
       return;
     }

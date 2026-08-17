@@ -54,7 +54,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         'city': _cityCtrl.text.trim(),
         'bio': _bioCtrl.text.trim(),
       });
-      await SecureStorage.setProfileComplete(true);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        await SecureStorage.setProfileComplete(true);
+      } else {
+        throw Exception(response.data['message'] ?? 'Registration failed');
+      }
       if (!mounted) return;
       context.go('/home');
     } catch (e) {

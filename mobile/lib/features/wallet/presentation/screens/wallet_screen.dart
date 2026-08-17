@@ -18,6 +18,7 @@ class WalletScreen extends StatefulWidget {
 class _WalletScreenState extends State<WalletScreen> {
   List<dynamic> _transactions = [];
   bool _loading = true;
+  bool _loadingMore = false;
   int _page = 1;
   bool _hasMore = true;
 
@@ -76,9 +77,14 @@ class _WalletScreenState extends State<WalletScreen> {
 
 
   Future<void> _loadMore() async {
-    if (!_hasMore) return;
+    if (!_hasMore || _loadingMore) return;
+    setState(() => _loadingMore = true);
     _page++;
-    await _load(refresh: false);
+    try {
+      await _load(refresh: false);
+    } finally {
+      if (mounted) setState(() => _loadingMore = false);
+    }
   }
 
   Color _txColor(String type) {
@@ -173,7 +179,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         return _hasMore ? Padding(padding: const EdgeInsets.only(top: 8), child: TextButton(onPressed: _loadMore, child: const Text('Load more'))) : const SizedBox.shrink();
                       }
                       final t = _transactions[i] as Map<String, dynamic>;
-                      final type = t['type'] as String;
+                      final type = (t['type'] as String?) ?? 'UNKNOWN';
                       final amount = (t['amount'] as num?)?.toDouble() ?? 0.0;
                       final isPositive = amount > 0;
                       return AppCard(

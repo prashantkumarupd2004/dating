@@ -12,7 +12,7 @@ import { cleanupExpiredRingingCalls } from './modules/calls/calls.service';
 const server = http.createServer(app);
 
 export const io = new Server(server, {
-  cors: { origin: '*', methods: ['GET', 'POST'] },
+  cors: { origin: config.allowedOrigins, methods: ['GET', 'POST'] },
   pingTimeout: 60000,
   transports: ['websocket', 'polling'],
 });
@@ -48,7 +48,20 @@ const start = async (): Promise<void> => {
 process.on('SIGTERM', async () => {
   logger.info('SIGTERM: shutting down gracefully');
   clearInterval(cleanupInterval);
+  const shutdownTimeout = setTimeout(() => process.exit(1), 10000);
   server.close(async () => {
+    clearTimeout(shutdownTimeout);
+    await disconnectDB();
+    process.exit(0);
+  });
+});
+
+process.on('SIGINT', async () => {
+  logger.info('SIGINT: shutting down gracefully');
+  clearInterval(cleanupInterval);
+  const shutdownTimeout = setTimeout(() => process.exit(1), 10000);
+  server.close(async () => {
+    clearTimeout(shutdownTimeout);
     await disconnectDB();
     process.exit(0);
   });
@@ -56,6 +69,12 @@ process.on('SIGTERM', async () => {
 
 process.on('unhandledRejection', (reason) => {
   logger.error('Unhandled rejection', reason);
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  logger.error('Uncaught exception', err);
+  process.exit(1);
 });
 
 start();

@@ -9,7 +9,8 @@ export const config = {
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET!,
     refreshSecret: process.env.JWT_REFRESH_SECRET!,
-    accessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN || '30d',
+    adminSecret: process.env.JWT_ADMIN_SECRET || process.env.JWT_ACCESS_SECRET!,
+    accessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN || '2h',
     refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '30d',
   },
   firebase: {
@@ -25,7 +26,11 @@ export const config = {
     keyId: process.env.RAZORPAY_KEY_ID!,
     keySecret: process.env.RAZORPAY_KEY_SECRET!,
   },
-  coinToInrRate: parseFloat(process.env.COIN_TO_INR_RATE || '0.10'),
+  coinToInrRate: (() => {
+    const v = parseFloat(process.env.COIN_TO_INR_RATE || '0.10');
+    if (isNaN(v)) throw new Error('COIN_TO_INR_RATE must be a valid number');
+    return v;
+  })(),
   allowedOrigins: (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(','),
   uploadBaseUrl: process.env.UPLOAD_BASE_URL || 'http://localhost:5000/uploads',
 };

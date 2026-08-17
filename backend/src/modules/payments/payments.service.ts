@@ -58,10 +58,11 @@ export const verifyPayment = async (
   const totalCoins = payment.coins + payment.bonusCoins;
 
   await prisma.$transaction(async (tx) => {
-    await tx.payment.update({
-      where: { id: payment.id },
+    const updated = await tx.payment.updateMany({
+      where: { id: payment.id, status: 'PENDING' },
       data: { status: 'SUCCESS', razorpayPaymentId, razorpaySignature },
     });
+    if (updated.count === 0) return; // already processed by concurrent request
 
     const wallet = await tx.wallet.findUnique({ where: { userId } });
     if (!wallet) throw new AppError(400, 'Wallet not found');
