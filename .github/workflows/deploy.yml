@@ -1,0 +1,43 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            # Pull latest code
+            cd /home/${{ secrets.EC2_USER }}/dating-app
+            git pull origin main
+
+            # Write backend .env from GitHub secret
+            echo "${{ secrets.BACKEND_ENV }}" > backend/.env
+
+            # Write admin .env from GitHub secret
+            echo "${{ secrets.ADMIN_ENV }}" > admin/.env.local
+
+            # Run DB migrations (no interactive prompt in production)
+            docker compose run --rm backend npx prisma migrate deploy
+
+            # Rebuild and restart containers (zero-downtime rolling restart)
+            docker compose build --no-cache
+            docker compose up -d --remove-orphans
+
+            # Remove dangling images to free disk
+            docker image prune -f
+
+            echo "✅ Deployment complete"
