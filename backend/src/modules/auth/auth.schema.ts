@@ -6,12 +6,14 @@ export const googleLoginSchema = z.object({
 
 export const registerSchema = z.object({
   name: z.string().min(2),
+  nickname: z.string().min(2).max(20).optional(),  // display name shown to listeners during calls
   // Accept full ISO string or YYYY-MM-DD — slice to first 10 chars normalises both
   dateOfBirth: z.string().min(10).transform((v) => v.slice(0, 10)),
   gender: z.enum(['MALE', 'FEMALE', 'OTHER']),
   city: z.string().optional(),
   bio: z.string().max(200).optional(),
   language: z.string().optional(),
+  photoUrl: z.string().optional(),  // avatar emoji or URL
 });
 
 export const refreshTokenSchema = z.object({
