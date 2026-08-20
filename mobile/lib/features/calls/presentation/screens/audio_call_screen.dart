@@ -11,6 +11,8 @@ import '../../../../core/network/api_client.dart';
 import '../../../../core/network/api_endpoints.dart';
 import '../../../../core/providers/wallet_provider.dart';
 import '../../../../core/services/ringtone_service.dart';
+import '../../../../core/services/call_state_store.dart';
+import '../../../../core/services/call_heartbeat_service.dart';
 import '../../../../core/socket/socket_service.dart';
 import '../../../../core/theme/call_colors.dart';
 
@@ -23,7 +25,7 @@ class AudioCallScreen extends StatefulWidget {
 }
 
 class _AudioCallScreenState extends State<AudioCallScreen>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   // ── Agora / call state ────────────────────────────────────────────────────
   RtcEngine? _engine;
   String? _callId;
@@ -37,6 +39,14 @@ class _AudioCallScreenState extends State<AudioCallScreen>
   Timer? _connectionTimeout;
   bool _ended = false;
   bool _navigatedAway = false; // prevent double pop
+
+  // Buffer for call:ended events that arrive before we receive our callId from the
+  // initiateCall API response. Without this, a very fast decline by the listener
+  // causes the event to be dropped (callId null check) and the user is stuck connecting.
+  final List<Map<String, dynamic>> _pendingEndEvents = [];
+
+  // ── Method channel for native foreground service ──────────────────────────
+  static const _platform = MethodChannel('com.milan.datingapp/call_foreground');
 
   // ── Animation controllers ─────────────────────────────────────────────────
   late AnimationController _pulseCtrl;    // caller avatar ripple
@@ -53,6 +63,7 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     WakelockPlus.enable();
+    WidgetsBinding.instance.addObserver(this);
 
     // ── Animations ────────────────────────────────────────────────────────
     _pulseCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1800))..repeat();
@@ -69,7 +80,30 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     _startCall();
   }
 
-  // ── Call logic ────────────────────────────────────────────────────────────
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    // Keep the call active when backgrounded/resumed — do NOT call leaveChannel
+    // The foreground service will keep the process alive
+    if (state == AppLifecycleState.resumed) {
+      // Ensure audio is not muted when returning to foreground
+      if (_engine != null && _inCall) {
+        _engine?.muteLocalAudioStream(_muted);
+      }
+    }
+  }
+
+  // ── Call logic ───────────────────────────────────────────────────────────────
+
+  /// Safely convert any JSON numeric value (int, double, String) to int.
+  /// Returns 0 as safe fallback so Agora gets a valid uid and doesn't throw.
+  static int _safeUid(dynamic v) {
+    if (v == null) return 0;
+    if (v is int) return v;
+    if (v is num) return v.toInt();
+    return int.tryParse(v.toString()) ?? 0;
+  }
+
   Future<void> _startCall() async {
     final micStatus = await Permission.microphone.request();
     if (!micStatus.isGranted) {
@@ -78,29 +112,63 @@ class _AudioCallScreenState extends State<AudioCallScreen>
       return;
     }
     try {
-      if (widget.extra['mode'] == 'listener') {
-        _callId = widget.extra['callId'] as String;
-        await _joinAgora(
-          widget.extra['channelId'] as String,
-          widget.extra['agoraToken'] as String,
-          widget.extra['agoraAppId'] as String,
-          // Safe int cast — JSON may give num/double
-          (widget.extra['uid'] as num).toInt(),
-        );
+      // ── RESTORATION PATH (BUG 3 FIX) ──────────────────────────────────────
+      // When the user taps the active-call notification, main.dart calls
+      // _tryRestoreActiveCall() which pushes the call screen with
+      // extra['restored'] = true and all Agora params already stored.
+      // In this case we must NOT call initiateCall (it would create a new
+      // call and fail because the listener is BUSY). Instead, go straight
+      // to _joinAgora() with the persisted params.
+      if (widget.extra['restored'] == true) {
+        debugPrint('[CALL_RESTORE] Restored from notification — skipping initiateCall API');
+        final channelId  = widget.extra['channelId']  as String?;
+        final agoraToken = widget.extra['agoraToken'] as String?;
+        final agoraAppId = widget.extra['agoraAppId'] as String?;
+        _callId          = widget.extra['callId']     as String? ?? '';
+        if (channelId == null || agoraToken == null || agoraAppId == null || _callId!.isEmpty) {
+          setState(() { _error = 'Cannot restore call — missing session data'; _loading = false; });
+          return;
+        }
+        await _joinAgora(channelId, agoraToken, agoraAppId, _safeUid(widget.extra['uid']));
         return;
       }
+
+      // ── LISTENER PATH ──────────────────────────────────────────────────────
+      if (widget.extra['mode'] == 'listener') {
+        final channelId  = widget.extra['channelId']  as String?;
+        final agoraToken = widget.extra['agoraToken'] as String?;
+        final agoraAppId = widget.extra['agoraAppId'] as String?;
+        _callId          = widget.extra['callId']     as String? ?? '';
+        if (channelId == null || agoraToken == null || agoraAppId == null) {
+          setState(() { _error = 'Invalid call config (missing Agora params)'; _loading = false; });
+          return;
+        }
+        await _joinAgora(channelId, agoraToken, agoraAppId, _safeUid(widget.extra['uid']));
+        return;
+      }
+
+      // ── USER / CALLER PATH ────────────────────────────────────────────────
       final resp = await api.post(ApiEndpoints.initiateCall, data: {
         'listenerId': widget.extra['listenerId'],
         'callType': 'AUDIO',
       });
-      final data = resp.data['data'];
-      _callId = data['callId'] as String;
-      await _joinAgora(
-        data['channelId'] as String,
-        data['agoraToken'] as String,
-        data['agoraAppId'] as String,
-        (data['userUid'] as num).toInt(),
-      );
+      final data = resp.data['data'] as Map<String, dynamic>? ?? {};
+
+      final channelId  = data['channelId']  as String?;
+      final agoraToken = data['agoraToken'] as String?;
+      final agoraAppId = data['agoraAppId'] as String?;
+      _callId          = data['callId']     as String? ?? '';
+
+      if (channelId == null || agoraToken == null || agoraAppId == null) {
+        setState(() { _error = 'Call setup failed — missing Agora config from server'; _loading = false; });
+        return;
+      }
+
+      // Check if a call:ended event arrived before we got this API response
+      // (e.g. listener declined very quickly). If so, handle it and skip Agora join.
+      if (_processPendingEndEvents()) return;
+
+      await _joinAgora(channelId, agoraToken, agoraAppId, _safeUid(data['userUid']));
     } catch (e) {
       if (!mounted) return;
       setState(() { _error = 'Failed to start call: $e'; _loading = false; });
@@ -112,12 +180,43 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     await _engine!.initialize(RtcEngineContext(appId: appId));
     await _engine!.enableAudio();
     _engine!.registerEventHandler(RtcEngineEventHandler(
-      onJoinChannelSuccess: (_, __) {
+      onJoinChannelSuccess: (_, __) async {
         if (mounted) setState(() => _loading = false);
-        // Play ringback tone for the caller while waiting for the listener to answer.
-        // Only play on the user side — listeners join directly without a ringing phase.
+        // ── Persist call state so it survives process death ────────────────
+        final mode    = widget.extra['mode'] as String? ?? 'user';
+        const callType = 'AUDIO';
+        if (_callId != null && _callId!.isNotEmpty) {
+          await CallStateStore.instance.save(
+            callId:       _callId!,
+            channelId:    channel,
+            agoraToken:   token,
+            agoraAppId:   appId,
+            uid:          uid,
+            callType:     callType,
+            mode:         mode,
+            listenerName: widget.extra['listenerName'] as String? ?? 'Call',
+          );
+          debugPrint('[CALL_CONNECTED] callId=$_callId mode=$mode');
+
+          // ── Start heartbeat so watchdog knows we are alive ───────────────
+          // role: 'listener' if this client is the listener, else 'user'
+          final heartbeatRole = mode == 'listener' ? 'listener' : 'user';
+          CallHeartbeatService.instance.start(callId: _callId!, role: heartbeatRole);
+          debugPrint('[CALL_HEARTBEAT] Started: callId=$_callId role=$heartbeatRole');
+        }
+
+        // Start foreground service
+        try {
+          final callerName = widget.extra['listenerName'] as String? ?? 'Call';
+          await _platform.invokeMethod('startCallForeground', {
+            'callerName': callerName,
+            'callType': 'audio',
+          });
+          debugPrint('[SERVICE_START] Call foreground service started');
+        } catch (e) {
+          // Ignore — foreground service is optional
+        }
         if (widget.extra['mode'] != 'listener') RingtoneService.playRingback();
-        // Start a 60-second timeout — if no remote user joins, auto-end the call
         _connectionTimeout = Timer(const Duration(seconds: 60), () {
           if (!_inCall && !_ended && mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -161,6 +260,13 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     _connectionTimeout?.cancel();
     RingtoneService.stop(); // stop ringback if listener never answered
 
+    // Stop foreground service
+    try {
+      await _platform.invokeMethod('stopCallForeground');
+    } catch (_) {
+      // Ignore — service may already be stopped
+    }
+
     final engine = _engine;
     _engine = null;
 
@@ -180,35 +286,118 @@ class _AudioCallScreenState extends State<AudioCallScreen>
         walletProvider.fetchBalance(force: true);
       } catch (_) {}
     }
+    // Stop heartbeat BEFORE clearing state so no stale beats land after end
+    CallHeartbeatService.instance.stop();
+    // Clear persisted call state — call is definitively over.
+    await CallStateStore.instance.clear();
+    debugPrint('[ACTIVE_CALL_CLEARED] _endCall complete');
     WakelockPlus.disable();
     await _navigateAfterCall();
   }
 
+  /// Processes any buffered call:ended events after _callId is known.
+  /// Returns true if a matching end event was found and handled (caller should
+  /// NOT proceed to join Agora in that case).
+  bool _processPendingEndEvents() {
+    for (final event in _pendingEndEvents) {
+      if (event['callId'] == _callId) {
+        debugPrint('[CALL_END] Processing buffered call:ended callId=$_callId reason=${event['reason']}');
+        _pendingEndEvents.clear();
+        _handleCallEnded(event);
+        return true;
+      }
+    }
+    _pendingEndEvents.clear();
+    return false;
+  }
+
   void _handleCallEnded(dynamic data) {
-    if (_ended || data is! Map || data['callId'] != _callId) return;
+    if (data is! Map) return;
+    // If callId is not yet known, buffer the event and process it once we know.
+    if (_callId == null) {
+      _pendingEndEvents.add(Map<String, dynamic>.from(data as Map));
+      debugPrint('[CALL_END] Buffered call:ended (callId not yet set): ${data['callId']}');
+      return;
+    }
+    if (_ended || data['callId'] != _callId) return;
     _ended = true;
     _timer?.cancel();
     _connectionTimeout?.cancel();
-    RingtoneService.stop(); // remote ended — stop ringback if still ringing
+    RingtoneService.stop();
+    // Stop heartbeat immediately — the call is over
+    CallHeartbeatService.instance.stop();
     final engine = _engine;
     _engine = null;
-    // Fire-and-forget — don't await in event handler
     Future(() async {
       try {
         await engine?.leaveChannel().timeout(const Duration(seconds: 3));
         await engine?.release().timeout(const Duration(seconds: 3));
       } catch (_) {}
+      await CallStateStore.instance.clear();
+      debugPrint('[ACTIVE_CALL_CLEARED] _handleCallEnded complete');
     });
     WakelockPlus.disable();
     if (!mounted || _navigatedAway) return;
     final reason = data['reason'] as String?;
-    final msg = reason == 'missed' ? 'No answer' : reason == 'rejected' ? 'Call declined' : 'Call ended';
+    final msg = reason == 'missed' ? 'No answer'
+      : reason == 'rejected'          ? 'Call declined'
+      : reason == 'listener_timeout'  ? 'Listener disconnected'
+      : reason == 'caller_timeout'    ? 'You were disconnected'
+      : 'Call ended';
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
-    // Use unawaited fire-and-forget so we don't await in a sync callback
     Future(() => _navigateAfterCall());
   }
 
+  /// Shows "End call?" confirmation dialog.
+  /// Returns true if the user confirmed ending the call, false/null otherwise.
+  Future<bool?> _showEndCallConfirmation() {
+    return showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1A1A2E),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Row(children: [
+          const Icon(Icons.call_end_rounded, color: Color(0xFFFF2D9B), size: 22),
+          const SizedBox(width: 10),
+          Text(
+            'End call?',
+            style: GoogleFonts.poppins(
+              fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white,
+            ),
+          ),
+        ]),
+        content: Text(
+          'Are you sure you want to end this call?',
+          style: GoogleFonts.poppins(fontSize: 14, color: Colors.white70),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            style: TextButton.styleFrom(foregroundColor: Colors.white54),
+            child: Text('Cancel', style: GoogleFonts.poppins(fontSize: 14)),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFFFF2D2D),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            ),
+            child: Text(
+              'End Call',
+              style: GoogleFonts.poppins(
+                fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   /// Show rating dialog (user-mode, connected calls only), then pop.
+
   Future<void> _navigateAfterCall() async {
     if (!mounted || _navigatedAway) return;
     _navigatedAway = true;
@@ -344,6 +533,7 @@ class _AudioCallScreenState extends State<AudioCallScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _pulseCtrl.dispose();
     _waveCtrl.dispose();
     _dotCtrl.dispose();
@@ -352,9 +542,15 @@ class _AudioCallScreenState extends State<AudioCallScreen>
     _timer?.cancel();
     _connectionTimeout?.cancel();
     if (!_ended) {
-      // unawaited — dispose must be synchronous
+      // Safety net: if the widget is disposed without _endCall being called
+      // (e.g. hot reload, unexpected navigation), clean up resources and
+      // clear the persisted state so we don't show a stale "Return to Call".
+      debugPrint('[CALL_END] dispose() called without _endCall — cleaning up');
+      CallHeartbeatService.instance.stop();
+      _platform.invokeMethod('stopCallForeground').catchError((_) {});
       _engine?.leaveChannel().catchError((_) {});
       _engine?.release().catchError((_) {});
+      CallStateStore.instance.clear();
     }
     WakelockPlus.disable();
     super.dispose();
@@ -374,8 +570,11 @@ class _AudioCallScreenState extends State<AudioCallScreen>
 
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _endCall();
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        // Show confirmation dialog — back press should NOT end call silently.
+        final confirmed = await _showEndCallConfirmation();
+        if (confirmed == true) _endCall();
       },
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
@@ -1060,12 +1259,12 @@ class _WaveformPainter extends CustomPainter {
     final cx = size.width / 2;
     final cy = size.height / 2;
     final maxH = size.height * 0.38;
-    final barW = 3.5;
-    final gap  = 5.5;
+    const barW = 3.5;
+    const gap  = 5.5;
     final total = _heights.length;
     final totalW = total * (barW + gap);
     final startX = cx - totalW / 2;
-    final centerRadius = 42.0; // don't draw bars over central button
+    const centerRadius = 42.0; // don't draw bars over central button
 
     for (int i = 0; i < total; i++) {
       final x = startX + i * (barW + gap) + barW / 2;
@@ -1107,8 +1306,8 @@ class _MiniWaveformPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     const heights = [0.4, 0.7, 1.0, 0.6, 0.8, 0.5, 0.9, 0.4, 0.7, 0.5];
-    final barW = 3.0;
-    final gap  = 2.0;
+    const barW = 3.0;
+    const gap  = 2.0;
     final total = heights.length;
     final totalW = total * (barW + gap);
     final startX = (size.width - totalW) / 2;

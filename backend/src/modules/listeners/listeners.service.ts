@@ -19,6 +19,17 @@ export const registerAsListener = async (
     isVideoAvailable?: boolean;
   }
 ) => {
+  // ── Gender enforcement: only FEMALE users can become listeners ────────────
+  const userProfile = await prisma.userProfile.findUnique({
+    where: { userId },
+    select: { gender: true },
+  });
+
+  // If profile exists, enforce female-only rule
+  if (userProfile && userProfile.gender !== 'FEMALE') {
+    throw new AppError(403, 'Only female users can register as listeners');
+  }
+
   const existing = await prisma.listener.findUnique({ where: { userId } });
   if (existing) throw new AppError(409, 'Already registered as a listener');
 

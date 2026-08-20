@@ -19,10 +19,12 @@ class ApiEndpoints {
 
   // Calls
   static const initiateCall = '/calls/initiate';
-  static String acceptCall(String id) => '/calls/$id/accept';
-  static String endCall(String id) => '/calls/$id/end';
-  static String rejectCall(String id) => '/calls/$id/reject';
-  static String rateCall(String id) => '/calls/$id/rate';
+  static String acceptCall(String id)    => '/calls/$id/accept';
+  static String endCall(String id)       => '/calls/$id/end';
+  static String rejectCall(String id)    => '/calls/$id/reject';
+  static String rateCall(String id)      => '/calls/$id/rate';
+  static String callStatus(String id)    => '/calls/$id/status';
+  static String callHeartbeat(String id) => '/calls/$id/heartbeat';
   static const callHistory = '/calls/history';
 
   // Wallet

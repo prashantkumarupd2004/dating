@@ -68,11 +68,13 @@ export const completeRegistration = async (
   userId: string,
   data: {
     name: string;
+    nickname?: string;       // Display name shown to listeners during calls
     dateOfBirth: string;
     gender: 'MALE' | 'FEMALE' | 'OTHER';
     city?: string;
     bio?: string;
     language?: string;
+    photoUrl?: string;
   }
 ) => {
   const dob = new Date(data.dateOfBirth);
@@ -82,6 +84,9 @@ export const completeRegistration = async (
 
   if (age < 18) throw new AppError(403, 'Must be 18 or older');
 
+  // Use nickname if provided, else derive from name
+  const displayNickname = data.nickname?.trim() || data.name;
+
   await prisma.user.update({ where: { id: userId }, data: { name: data.name } });
 
   const profile = await prisma.userProfile.upsert({
@@ -89,17 +94,21 @@ export const completeRegistration = async (
     update: {
       dateOfBirth: dob,
       gender: data.gender,
+      nickname: displayNickname,
       city: data.city,
       bio: data.bio,
       language: data.language,
+      photoUrl: data.photoUrl,
     },
     create: {
       userId,
       dateOfBirth: dob,
       gender: data.gender,
+      nickname: displayNickname,
       city: data.city,
       bio: data.bio,
       language: data.language,
+      photoUrl: data.photoUrl,
     },
   });
 

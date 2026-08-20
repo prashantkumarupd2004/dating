@@ -45,6 +45,7 @@ model UserProfile {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   dateOfBirth DateTime
   gender      Gender
+  nickname    String?  // Display name shown to listeners during calls
   city        String?
   bio         String?
   photoUrl    String?
@@ -154,23 +155,26 @@ model ListenerAvailability {
 }
 
 model Call {
-  id             String     @id @default(uuid())
-  userId         String
-  user           User       @relation("CallerCalls", fields: [userId], references: [id])
-  listenerId     String
-  listener       Listener   @relation("ListenerCalls", fields: [listenerId], references: [id])
-  type           CallType
-  status         CallStatus @default(INITIATED)
-  agoraChannelId String?    @unique
-  userUid        Int?
-  listenerUid    Int?
-  ringExpiresAt  DateTime?
-  startedAt      DateTime?
-  endedAt        DateTime?
+  id              String     @id @default(uuid())
+  userId          String
+  user            User       @relation("CallerCalls", fields: [userId], references: [id])
+  listenerId      String
+  listener        Listener   @relation("ListenerCalls", fields: [listenerId], references: [id])
+  type            CallType
+  status          CallStatus @default(INITIATED)
+  agoraChannelId  String?    @unique
+  userUid         Int?
+  listenerUid     Int?
+  ringExpiresAt   DateTime?
+  startedAt       DateTime?
+  endedAt         DateTime?
   durationSeconds Int?
-  idempotencyKey String     @unique
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  idempotencyKey  String     @unique
+  terminationReason String?  // 'caller_timeout' | 'listener_timeout' | 'normal' | ...
+  callerLastSeen  DateTime?  // updated by heartbeat — null until first heartbeat
+  listenerLastSeen DateTime? // updated by heartbeat — null until first heartbeat
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
 
   billing  CallBilling?
   earning  Earning?

@@ -89,6 +89,57 @@ class ListenerModel {
       isFavorite: json['isFavorite'] as bool? ?? false,
     );
   }
+
+  /// Creates a copy of this model with selected fields replaced.
+  /// Used by HomeScreen to update [onlineStatus] from socket events in-place
+  /// without losing the remaining listener data.
+  ListenerModel copyWith({
+    String? id,
+    String? displayName,
+    String? photoUrl,
+    int? age,
+    String? city,
+    String? state,
+    String? relationshipStatus,
+    String? onlineStatus,
+    String? status,
+    bool? isAudioEnabled,
+    bool? isVideoEnabled,
+    double? rating,
+    int? totalCalls,
+    List<String>? languages,
+    String? bio,
+    String? quote,
+    String? expertise,
+    double? pricePerMin,
+    bool? isVerified,
+    bool? isFavorite,
+    bool? isFeatured,
+  }) {
+    return ListenerModel(
+      id:                 id               ?? this.id,
+      displayName:        displayName      ?? this.displayName,
+      photoUrl:           photoUrl         ?? this.photoUrl,
+      age:                age              ?? this.age,
+      city:               city             ?? this.city,
+      state:              state            ?? this.state,
+      relationshipStatus: relationshipStatus ?? this.relationshipStatus,
+      onlineStatus:       onlineStatus     ?? this.onlineStatus,
+      status:             status           ?? this.status,
+      isAudioEnabled:     isAudioEnabled   ?? this.isAudioEnabled,
+      isVideoEnabled:     isVideoEnabled   ?? this.isVideoEnabled,
+      rating:             rating           ?? this.rating,
+      totalCalls:         totalCalls       ?? this.totalCalls,
+      languages:          languages        ?? this.languages,
+      bio:                bio              ?? this.bio,
+      quote:              quote            ?? this.quote,
+      expertise:          expertise        ?? this.expertise,
+      pricePerMin:        pricePerMin      ?? this.pricePerMin,
+      isVerified:         isVerified       ?? this.isVerified,
+      isFavorite:         isFavorite       ?? this.isFavorite,
+      isFeatured:         isFeatured       ?? this.isFeatured,
+    );
+  }
 }
 
 class CallModel {
@@ -96,10 +147,12 @@ class CallModel {
   final String listenerId;
   final String listenerName;
   final String? listenerPhoto;
+  final String? userName;          // caller's name — populated from API response
   final String type;
   final String status;
   final int? durationSeconds;
-  final double? coinsDeducted;
+  final double? coinsDeducted;     // coins deducted from user
+  final double? listenerEarning;   // INR earned by listener (from earning.listenerAmount)
   final DateTime createdAt;
 
   const CallModel({
@@ -107,16 +160,18 @@ class CallModel {
     required this.listenerId,
     required this.listenerName,
     this.listenerPhoto,
+    this.userName,
     required this.type,
     required this.status,
     this.durationSeconds,
     this.coinsDeducted,
+    this.listenerEarning,
     required this.createdAt,
   });
 
   factory CallModel.fromJson(Map<String, dynamic> json) {
     final listener = json['listener'] as Map<String, dynamic>?;
-    final profile = listener?['profile'] as Map<String, dynamic>?;
+    final profile  = listener?['profile'] as Map<String, dynamic>?;
 
     // Safe int parser — backend may return int or String
     int? safeInt(dynamic v) {
@@ -134,15 +189,17 @@ class CallModel {
     }
 
     return CallModel(
-      id: json['id'] as String,
-      listenerId: json['listenerId'] as String,
-      listenerName: profile?['displayName'] as String? ?? 'Unknown',
-      listenerPhoto: profile?['photoUrl'] as String?,
-      type: json['type'] as String,
-      status: json['status'] as String,
-      durationSeconds: safeInt(json['durationSeconds']),
-      coinsDeducted: safeDouble(json['billing']?['coinsDeducted']),
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      id:               json['id'] as String,
+      listenerId:       json['listenerId'] as String,
+      listenerName:     profile?['displayName'] as String? ?? 'Unknown',
+      listenerPhoto:    profile?['photoUrl'] as String?,
+      userName:         json['user']?['name'] as String?,
+      type:             json['type'] as String,
+      status:           json['status'] as String,
+      durationSeconds:  safeInt(json['durationSeconds']),
+      coinsDeducted:    safeDouble(json['billing']?['coinsDeducted']),
+      listenerEarning:  safeDouble(json['earning']?['listenerAmount']),
+      createdAt:        DateTime.parse(json['createdAt'] as String),
     );
   }
 }

@@ -30,15 +30,21 @@ class ListenerEarningsScreen extends StatefulWidget {
 class _ListenerEarningsScreenState extends State<ListenerEarningsScreen> {
   Map<String, dynamic>? _summary;
   List<dynamic> _history = [];
-  bool _loading = true;
+  bool _loading = false;
   DateTime? _lastRefresh; // Track last refresh time
 
   @override
   void initState() { super.initState(); _load(); }
 
   Future<void> _load() async {
-    // Prevent rapid refresh - only allow refresh every 30 seconds
-    if (_lastRefresh != null) {
+    // Prevent concurrent requests
+    if (_loading) {
+      debugPrint('⏸️ [Earnings] Already loading, skipping...');
+      return;
+    }
+
+    // Prevent rapid refresh - only allow refresh every 30 seconds (but only after first success)
+    if (_lastRefresh != null && _summary != null) {
       final timeSinceLastRefresh = DateTime.now().difference(_lastRefresh!);
       if (timeSinceLastRefresh.inSeconds < 30) {
         debugPrint('⏸️ [Earnings] Skipping refresh - last refresh was ${timeSinceLastRefresh.inSeconds}s ago');
@@ -46,14 +52,7 @@ class _ListenerEarningsScreenState extends State<ListenerEarningsScreen> {
       }
     }
 
-    // Prevent concurrent requests
-    if (_loading) {
-      debugPrint('⏸️ [Earnings] Already loading, skipping...');
-      return;
-    }
-
     setState(() => _loading = true);
-    _lastRefresh = DateTime.now();
 
     try {
       final results = await Future.wait([
@@ -78,9 +77,20 @@ class _ListenerEarningsScreenState extends State<ListenerEarningsScreen> {
         _history = historyList;
         _loading = false;
       });
+
+      // Only set lastRefresh on success
+      _lastRefresh = DateTime.now();
     } catch (e) {
       debugPrint('Earnings load error: $e');
       setState(() => _loading = false);
+
+      // If 404, user is not registered as listener - redirect to registration
+      if (e.toString().contains('404') && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Please complete listener registration first'), backgroundColor: AppColors.error),
+        );
+        context.go('/listener/register');
+      }
     }
   }
 

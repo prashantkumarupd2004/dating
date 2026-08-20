@@ -98,25 +98,8 @@ class _ListenerRegisterFullScreenState extends State<ListenerRegisterFullScreen>
 
       if (!mounted) return;
       await SecureStorage.setProfileComplete(true);
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) => AlertDialog(
-          backgroundColor: AppColors.surface,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: const Text('Application Submitted!', style: TextStyle(color: AppColors.textPrimary)),
-          content: const Text(
-            'Your application and voice sample are under review. You will be notified once approved.',
-            style: TextStyle(color: AppColors.textSecondary),
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () { Navigator.pop(context); context.go('/home'); },
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+      // Navigate to premium "Under Review" status screen
+      context.go('/listener/under-review');
     } catch (e) {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registration failed: $e'), backgroundColor: AppColors.error),

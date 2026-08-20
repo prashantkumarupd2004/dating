@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/network/api_client.dart';
 import '../../../../core/network/api_endpoints.dart';
+import '../../../../core/socket/socket_service.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../shared/models/models.dart';
@@ -19,11 +20,31 @@ class ProfileDetailScreen extends StatefulWidget {
 class _ProfileDetailScreenState extends State<ProfileDetailScreen> {
   ListenerModel? _listener;
   bool _loading = true;
+  late final Function(dynamic) _onListenerStatus;
 
   @override
   void initState() {
     super.initState();
+    _onListenerStatus = _handleListenerStatus;
+    socketService.addListener('listener:status', _onListenerStatus);
     _load();
+  }
+
+  @override
+  void dispose() {
+    socketService.removeListener('listener:status', _onListenerStatus);
+    super.dispose();
+  }
+
+  /// Update status in real-time when this specific listener goes online/offline.
+  void _handleListenerStatus(dynamic data) {
+    if (data is! Map) return;
+    final listenerId = data['listenerId'] as String?;
+    final status     = data['status']     as String?;
+    if (listenerId != widget.listenerId || status == null) return;
+    if (_listener == null || !mounted) return;
+    setState(() => _listener = _listener!.copyWith(onlineStatus: status));
+    debugPrint('[PROFILE_DETAIL] listener:status → $status');
   }
 
   Future<void> _load() async {

@@ -158,8 +158,18 @@ class _LoginScreenState extends State<LoginScreen> {
       // Check mounted again after delay
       if (!mounted) return;
 
-      // Always go to home - skip registration
-      context.replace('/home');
+      // ── Step 10: Navigate ─────────────────────────────────────────
+      final isNew = data['isNew'] as bool? ?? false;
+      final hasProfile = data['hasProfile'] as bool? ?? true;
+
+      if (isNew || !hasProfile) {
+        // New user — go through gender selection → profile setup
+        debugPrint('🆕 New user, redirecting to gender select');
+        context.replace('/auth/gender');
+      } else {
+        // Existing user — go straight to home
+        context.replace('/home');
+      }
 
     } on FirebaseAuthException catch (e) {
       debugPrint('[LOGIN] FirebaseAuthException: ${e.code} — ${e.message}');

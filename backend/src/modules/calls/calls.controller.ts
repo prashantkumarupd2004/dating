@@ -90,3 +90,39 @@ export const getCallHistory = async (
     next(err);
   }
 };
+
+export const getCallStatus = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const result = await callsService.getCallStatus(req.params.callId, req.userId!);
+    sendSuccess(res, result, 'Call status fetched');
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const heartbeatCall = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const { role } = req.body as { role?: string };
+    if (role !== 'user' && role !== 'listener') {
+      res.status(400).json({ success: false, message: 'role must be "user" or "listener"' });
+      return;
+    }
+    const result = await callsService.callHeartbeat(
+      req.params.callId,
+      req.userId!,
+      role
+    );
+    sendSuccess(res, result, 'Heartbeat recorded');
+  } catch (err) {
+    next(err);
+  }
+};
+

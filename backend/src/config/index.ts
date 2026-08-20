@@ -33,4 +33,14 @@ export const config = {
   })(),
   allowedOrigins: (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(','),
   uploadBaseUrl: process.env.UPLOAD_BASE_URL || 'http://localhost:5000/uploads',
+  call: {
+    // How often (ms) Flutter clients POST a heartbeat while call is active.
+    // Flutter sends every 12s; backend expects a beat within participantTimeoutMs.
+    heartbeatIntervalMs: parseInt(process.env.CALL_HEARTBEAT_INTERVAL_MS || '12000', 10),
+    // Grace period after last heartbeat before backend treats participant as gone.
+    // Must be > heartbeatIntervalMs to tolerate brief network blips.
+    participantTimeoutMs: parseInt(process.env.CALL_PARTICIPANT_TIMEOUT_MS || '45000', 10),
+    // How often the server-side watchdog scans for orphaned IN_PROGRESS calls.
+    watchdogIntervalMs: parseInt(process.env.CALL_WATCHDOG_INTERVAL_MS || '15000', 10),
+  },
 };

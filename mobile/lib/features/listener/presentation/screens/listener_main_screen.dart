@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../calls/presentation/screens/calls_tab_screen.dart';
-import '../../../profile/presentation/screens/profile_screen.dart';
+import '../../../../core/l10n/app_localizations.dart';
+import '../../../../core/services/locale_service.dart';
 import '../../../../core/theme/app_colors.dart';
+import 'listener_account_screen.dart';
+import 'listener_calls_screen.dart';
 import 'listener_dashboard_screen.dart';
 import 'listener_earnings_screen.dart';
 
@@ -14,15 +16,32 @@ class ListenerMainScreen extends StatefulWidget {
 class _ListenerMainScreenState extends State<ListenerMainScreen> {
   int _index = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    localeService.locale.addListener(_onLocaleChange);
+  }
+
+  @override
+  void dispose() {
+    localeService.locale.removeListener(_onLocaleChange);
+    super.dispose();
+  }
+
+  void _onLocaleChange() {
+    if (mounted) setState(() {});
+  }
+
   final _tabs = const [
     ListenerDashboardScreen(),
-    CallsTabScreen(),
+    ListenerCallsScreen(),
     ListenerEarningsScreen(),
-    ProfileScreen(),
+    ListenerAccountScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.current;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
@@ -39,15 +58,17 @@ class _ListenerMainScreenState extends State<ListenerMainScreen> {
           onTap: (i) => setState(() => _index = i),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.dashboard_outlined), activeIcon: Icon(Icons.dashboard_rounded), label: 'Dashboard'),
-            BottomNavigationBarItem(icon: Icon(Icons.call_outlined), activeIcon: Icon(Icons.call_rounded), label: 'Calls'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_outlined), activeIcon: Icon(Icons.account_balance_wallet_rounded), label: 'Earnings'),
-            BottomNavigationBarItem(icon: Icon(Icons.person_outline), activeIcon: Icon(Icons.person_rounded), label: 'Profile'),
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: AppColors.textHint,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(icon: const Icon(Icons.dashboard_outlined), activeIcon: const Icon(Icons.dashboard_rounded), label: l.dashboard),
+            BottomNavigationBarItem(icon: const Icon(Icons.call_outlined), activeIcon: const Icon(Icons.call_rounded), label: l.calls),
+            BottomNavigationBarItem(icon: const Icon(Icons.account_balance_wallet_outlined), activeIcon: const Icon(Icons.account_balance_wallet_rounded), label: l.earnings),
+            BottomNavigationBarItem(icon: const Icon(Icons.person_outline), activeIcon: const Icon(Icons.person_rounded), label: l.account),
           ],
         ),
       ),
     );
   }
 }
-

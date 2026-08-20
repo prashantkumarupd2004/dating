@@ -60,10 +60,17 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             return;
           }
 
-          // If PENDING or REJECTED, go to home (user can check status from profile)
-          if ((status == 'PENDING' || status == 'REJECTED') && mounted) {
-            debugPrint('⏳ Listener status is $status, going to home');
-            context.go('/home');
+          // If PENDING → show Under Review status screen
+          if (status == 'PENDING' && mounted) {
+            debugPrint('⏳ Listener is PENDING, showing under-review screen');
+            context.go('/listener/under-review');
+            return;
+          }
+
+          // If REJECTED → show Under Review screen with rejection state
+          if (status == 'REJECTED' && mounted) {
+            debugPrint('❌ Listener is REJECTED, showing under-review screen');
+            context.go('/listener/under-review');
             return;
           }
         }

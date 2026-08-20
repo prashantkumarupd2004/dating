@@ -122,7 +122,18 @@ class ApiClient {
         throw Exception('Token refresh failed');
       }
     } catch (e) {
-      await SecureStorage.clear();
+      // Only wipe tokens if the refresh endpoint explicitly rejected the token
+      // (401/403). Network errors or 500s should NOT delete stored tokens —
+      // the user's session is still valid; just the network request failed.
+      if (e is DioException) {
+        final status = e.response?.statusCode;
+        if (status == 401 || status == 403) {
+          await SecureStorage.clear();
+        }
+        // For network errors, timeouts, 500s: keep tokens, let caller handle
+      } else if (e.toString().contains('No refresh token available')) {
+        await SecureStorage.clear();
+      }
       rethrow;
     } finally {
       _isRefreshing = false;

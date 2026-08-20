@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/network/api_client.dart';
 import '../../../../core/network/api_endpoints.dart';
 import '../../../../core/providers/wallet_provider.dart';
+import '../../../../core/socket/socket_service.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../shared/models/models.dart';
 import '../../../../shared/widgets/listener_card.dart';
@@ -26,21 +27,46 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const _categories = ['All', '⭐ Star', '♡ Relationship', '💍 Marriage', '🛡 Confidence', 'Friends'];
 
+  // ── Socket handler reference (stored so we can remove the exact same fn) ──
+  late final Function(dynamic) _onListenerStatus;
+
   @override
   void initState() {
     super.initState();
+    // Subscribe to real-time listener status updates.
+    // The backend emits 'listener:status' whenever any listener goes
+    // ONLINE / OFFLINE / BUSY. We update our local list in-place so the
+    // UI refreshes instantly — no round-trip API call needed.
+    _onListenerStatus = _handleListenerStatus;
+    socketService.addListener('listener:status', _onListenerStatus);
     _load();
-    // Balance is fetched automatically via socket updates or manual refresh
-    // Removed: walletProvider.fetchBalance() — reduces unnecessary API calls
   }
 
   @override
   void dispose() {
+    socketService.removeListener('listener:status', _onListenerStatus);
     super.dispose();
   }
 
-  void _onWalletUpdate() {
-    if (mounted) setState(() {});
+  /// Called when the server broadcasts a listener status change.
+  /// Updates the matching entry in [_listeners] in-place and calls setState
+  /// so every ListenerCard reflects the new status immediately.
+  void _handleListenerStatus(dynamic data) {
+    if (data is! Map) return;
+    final listenerId = data['listenerId'] as String?;
+    final status     = data['status']     as String?;
+    if (listenerId == null || status == null) return;
+
+    // Find the index — bail silently if this listener isn't in our current list.
+    final idx = _listeners.indexWhere((l) => l.id == listenerId);
+    if (idx < 0) return;
+
+    // Replace the model with an updated copy.
+    final updated = _listeners[idx].copyWith(onlineStatus: status);
+    if (mounted) {
+      setState(() => _listeners[idx] = updated);
+    }
+    debugPrint('[HOME] listener:status → listenerId=$listenerId status=$status');
   }
 
   Future<void> _load() async {

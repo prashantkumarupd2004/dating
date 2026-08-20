@@ -1,0 +1,1327 @@
+08-18 11:15:26.223  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:15:26.302  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:26.303  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:26.344  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:26.345  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:26.345  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:27.356  6411  6411 I SurfaceView@ab1dc87: surfaceChanged (1080,2408) 1 #5 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:15:28.388  6411  6411 I flutter : 🌐 [API Request] POST /calls/initiate
+08-18 11:15:28.706  6411  6411 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:15:30.683  6411  6411 I flutter : 🌐 [API Request] POST /calls/3502b342-f5bf-4de1-a54b-11ffa29d448f/end
+08-18 11:15:30.996  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:30.999  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:31.048  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:31.048  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:31.049  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:32.892  6411  6411 I flutter : 🌐 [API Request] POST /calls/initiate
+08-18 11:15:33.849  6411  6411 I flutter : 🌐 [API Request] POST /calls/b7e610da-8d81-426d-aa72-7a0567a264c3/end
+08-18 11:15:33.897  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:33.899  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:33.940  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:33.940  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:33.941  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:44.377  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:15:44.459  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:44.460  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:44.503  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:44.504  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:44.504  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:48.920  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:15:49.124  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:49.146  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:49.278  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:49.279  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:49.279  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:50.540  6411  6411 I flutter : 🌐 [API Request] POST /calls/initiate
+08-18 11:15:51.984  6411  6411 I flutter : 🌐 [API Request] POST /calls/3fc833a0-b6a4-4671-96d7-a213e46dbcab/end
+08-18 11:15:52.032  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:52.035  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:52.086  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:52.086  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:52.086  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:53.021  6411  6411 I SurfaceView@ab1dc87: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:53.022  6411  6411 I SurfaceView@ab1dc87: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408}
+08-18 11:15:53.055  6411  6411 I SurfaceView@ab1dc87: windowStopped(true) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:55.085  6411  6411 I SurfaceView@ab1dc87: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:55.116  6411  6411 I SurfaceView@ab1dc87: windowStopped(false) true io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:55.122  6411  6411 I SurfaceView@ab1dc87: surfaceCreated 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:15:55.147  6411  6411 I SurfaceView@ab1dc87: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:15:55.458  6411  6411 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:15:57.039  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:15:57.172  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:15:57.173  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:15:57.224  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:15:57.225  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:15:57.225  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:15:58.826  6411  6411 I SurfaceView@ab1dc87: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:58.827  6411  6411 I SurfaceView@ab1dc87: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408}
+08-18 11:15:58.854  6411  6411 I SurfaceView@ab1dc87: windowStopped(true) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:59.792  6411  6411 I SurfaceView@ab1dc87: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:59.817  6411  6411 I SurfaceView@ab1dc87: windowStopped(false) true io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:15:59.822  6411  6411 I SurfaceView@ab1dc87: surfaceCreated 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:15:59.845  6411  6411 I SurfaceView@ab1dc87: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:16:00.041  6411  6411 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:16:04.017  6411  6411 I SurfaceView@ab1dc87: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:16:04.018  6411  6411 I SurfaceView@ab1dc87: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408}
+08-18 11:16:04.057  6411  6411 I SurfaceView@ab1dc87: windowStopped(true) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:16:04.065  6411  6411 I flutter : Receive the onDetachedFromEngine callback, clean the native resources.
+08-18 11:16:05.046  6411  7128 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:16:05.086  6411  6411 I SurfaceView@a237460: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{a237460 V.E...... ......I. 0,0-0,0} of ViewRootImpl@7c217b7[MainActivity]
+08-18 11:16:05.115  6411  6411 I SurfaceView@a237460: windowStopped(false) true io.flutter.embedding.android.x{a237460 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@7c217b7[MainActivity]
+08-18 11:16:05.124  6411  6411 I SurfaceView@a237460: surfaceCreated 1 #8 io.flutter.embedding.android.x{a237460 V.E...... ......ID 0,0-1080,2273}
+08-18 11:16:05.192  6411  6411 I SurfaceView@a237460: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{a237460 V.E...... ......ID 0,0-1080,2273}
+08-18 11:16:05.266  6411  6411 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:16:05.286  6411  6411 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:16:07.282  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:16:07.368  6411  6411 I flutter : ❌ [API Error] 404 - GET /listeners/me
+08-18 11:16:07.368  6411  6411 I flutter : ❌ Listener check failed: DioException [bad response]: This exception was thrown because the response has a status code of 404 and RequestOptions.validateStatus was configured to throw for this status code.
+08-18 11:16:07.368  6411  6411 I flutter : The status code of 404 has the following meaning: "Client error - the request contains bad syntax or cannot be fulfilled"
+08-18 11:16:07.368  6411  6411 I flutter : Read more about status codes at https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+08-18 11:16:07.368  6411  6411 I flutter : In order to resolve this exception you typically have either to verify and fix your request code or you have to fix the server code.
+08-18 11:16:07.368  6411  6411 I flutter : 
+08-18 11:16:07.427  6411  6411 I flutter : ✅ Socket connected
+08-18 11:16:07.438  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:16:07.439  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:16:07.439  6411  6411 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:16:07.440  6411  6411 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 11:16:07.440  6411  6411 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:16:07.512  6411  6411 I flutter : ❌ [API Error] 404 - GET /listeners/me
+08-18 11:16:07.565  6411  6411 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:16:07.566  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:16:07.607  6411  6411 I flutter : ❌ [API Error] 404 - GET /listeners/me
+08-18 11:16:07.607  6411  6411 I flutter : ℹ️ Not a listener (expected for regular users): DioException [bad response]: This exception was thrown because the response has a status code of 404 and RequestOptions.validateStatus was configured to throw for this status code.
+08-18 11:16:07.607  6411  6411 I flutter : The status code of 404 has the following meaning: "Client error - the request contains bad syntax or cannot be fulfilled"
+08-18 11:16:07.607  6411  6411 I flutter : Read more about status codes at https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+08-18 11:16:07.607  6411  6411 I flutter : In order to resolve this exception you typically have either to verify and fix your request code or you have to fix the server code.
+08-18 11:16:07.607  6411  6411 I flutter : 
+08-18 11:16:18.320  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:16:18.426  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:16:18.448  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:16:18.492  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:16:18.493  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:16:18.493  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:16:25.591  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:16:25.708  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:16:25.709  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:16:25.750  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:16:25.751  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:16:25.751  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:16:53.762  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:16:53.864  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:16:53.865  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:16:53.914  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: 568e51ed-836e-4e92-a656-d9dd80d23089, userId: 62e32823-d902-435d-8025-5bf337b49640, balance: 1000, createdAt: 2026-08-16T03:27:34.712Z, updatedAt: 2026-08-16T04:28:40.973Z, transactions: []}}
+08-18 11:16:53.914  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 1000.0 (raw=1000, type=int)
+08-18 11:16:53.915  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 1000.0
+08-18 11:17:06.137  6411  6411 I flutter : 🌐 [API Request] POST /auth/logout
+08-18 11:17:06.280  6411  6411 I flutter : ⚠️ Socket disconnected
+08-18 11:17:06.280  6411  6411 I flutter : ✅ Session cleared
+08-18 11:17:07.977  6411  6411 I flutter : [LOGIN] Waiting for Google account...
+08-18 11:17:11.367  6411  6411 I flutter : [LOGIN] Google account selected ✓
+08-18 11:17:11.367  6411  6411 I flutter : [LOGIN] Getting authentication tokens...
+08-18 11:17:11.441  6411  6411 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:17:11.480  6411  6411 I flutter : [LOGIN] Tokens received ✓
+08-18 11:17:11.480  6411  6411 I flutter : [LOGIN] Signing in with Firebase...
+08-18 11:17:12.536  6411  6411 I flutter : [LOGIN] Firebase sign-in successful ✓
+08-18 11:17:12.536  6411  6411 I flutter : [LOGIN] Getting server token...
+08-18 11:17:13.027  6411  6411 I flutter : [LOGIN] Server token ready ✓
+08-18 11:17:13.028  6411  6411 I flutter : [LOGIN] Connecting to server...
+08-18 11:17:13.029  6411  6411 I flutter : 🌐 [API Request] POST /auth/google
+08-18 11:17:13.345  6411  6411 I flutter : [LOGIN] Server login successful ✓
+08-18 11:17:13.345  6411  6411 I flutter : [LOGIN] Saving session...
+08-18 11:17:13.359  6411  6411 I flutter : [LOGIN] Session saved ✓
+08-18 11:17:13.360  6411  6411 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:17:13.360  6411  6411 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:17:13.361  6411  6411 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:17:13.404  6411  6411 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: ceae9871-bba2-46e3-bf7f-1bff5ede229e, userId: eff6c8a0-21dc-4bc7-9301-5c704e4f5ddd, balance: 976.5001, createdAt: 2026-08-16T03:26:25.367Z, updatedAt: 2026-08-16T08:02:55.687Z, transactions: [{id: 8c405fa3-d56c-4865-9163-fa84fda87822, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 10.8333, balanceBefore: 987.3334, balanceAfter: 976.5001, description: Call deduction for call 61e4a740-1c3d-466a-b080-3e3c26e8145a, refId: 61e4a740-1c3d-466a-b080-3e3c26e8145a, metadata: null, createdAt: 2026-08-16T08:02:55.690Z}, {id: 0785db88-0fdc-4502-b081-a04abb2bfbc9, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 11.3333, balanceBefore: 998.6667, balanceAfter: 987.3334, description: Call deduction for call a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, refId: a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, metadata: null, createdAt: 2026-08-16T07:12:34.647Z}, {id: 0f7e1b3d-ec5d-4c71-a7ff-9078520e4199,
+08-18 11:17:13.405  6411  6411 I flutter : [WalletProvider] Parsed from data.balance: 976.5001 (raw=976.5001, type=double)
+08-18 11:17:13.405  6411  6411 I flutter : [WalletProvider] Balance fetched successfully: 976.5001
+08-18 11:17:13.707  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:17:13.708  6411  6411 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:17:13.708  6411  6411 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:17:13.709  6411  6411 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 11:17:13.710  6411  6411 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:17:13.759  6411  6411 I flutter : ✅ Approved listener detected in MainScreen, redirecting to dashboard
+08-18 11:17:13.788  6411  6411 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:17:13.793  6411  6411 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:17:13.829  6411  6411 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:17:13.829  6411  6411 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:17:13.830  6411  6411 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:17:13.860  6411  6411 I flutter : type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:17:13.867  6411  6411 I flutter : #0      _WalletScreenState.build.<anonymous closure> (package:dating_app/features/wallet/presentation/screens/wallet_screen.dart:183)
+08-18 11:17:13.867  6411  6411 I flutter : #1      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552)
+08-18 11:17:13.867  6411  6411 I flutter : #2      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055)
+08-18 11:17:13.867  6411  6411 I flutter : #3      SliverMultiBoxAdaptorElement.createChild.<anonymous closure> (package:flutter/src/widgets/sliver.dart:1071)
+08-18 11:17:13.867  6411  6411 I flutter : #4      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101)
+08-18 11:17:13.867  6411  6411 I flutter : #5      SliverMultiBoxAdaptorElement.createChild (package:flutter/src/widgets/sliver.dart:1061)
+08-18 11:17:13.867  6411  6411 I flutter : #6      RenderSliverMultiBoxAdaptor._createOrObtainChild.<anonymous closure> (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:368)
+08-18 11:17:13.867  6411  6411 I flutter : #7      RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:2887)
+08-18 11:17:13.867  6411  6411 I flutter : #8      PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223)
+08-18 11:17:13.868  6411  6411 I flutter : #9      RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:2886)
+08-18 11:17:13.868  6411  6411 I flutter : #10     RenderSliverMultiBoxAdaptor._createOrObtainChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:357)
+08-18 11:17:13.868  6411  6411 I flutter : #11     RenderSliverMultiBoxAdaptor.addInitialChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:455)
+08-18 11:17:13.868  6411  6411 I flutter : #12     RenderSliverList.performLayout (package:flutter/src/rendering/sliver_list.dart:79)
+08-18 11:17:13.868  6411  6411 I flutter : #13     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.868  6411  6411 I flutter : #14     RenderSliverEdgeInsetsPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:133)
+08-18 11:17:13.868  6411  6411 I flutter : #15     RenderSliverPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:368)
+08-18 11:17:13.868  6411  6411 I flutter : #16     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.868  6411  6411 I flutter : #17     RenderViewportBase.layoutChildSequence (package:flutter/src/rendering/viewport.dart:673)
+08-18 11:17:13.868  6411  6411 I flutter : #18     RenderViewport._attemptLayout (package:flutter/src/rendering/viewport.dart:1684)
+08-18 11:17:13.868  6411  6411 I flutter : #19     RenderViewport.performLayout (package:flutter/src/rendering/viewport.dart:1575)
+08-18 11:17:13.869  6411  6411 I flutter : #20     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.869  6411  6411 I flutter : #21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.869  6411  6411 I flutter : #22     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.869  6411  6411 I flutter : #23     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.869  6411  6411 I flutter : #24     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.869  6411  6411 I flutter : #25     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.869  6411  6411 I flutter : #26     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.869  6411  6411 I flutter : #27     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.869  6411  6411 I flutter : #28     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.869  6411  6411 I flutter : #29     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.870  6411  6411 I flutter : #30     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.870  6411  6411 I flutter : #31     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.870  6411  6411 I flutter : #32     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.870  6411  6411 I flutter : #33     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.870  6411  6411 I flutter : #34     RenderCustomPaint.performLayout (package:flutter/src/rendering/custom_paint.dart:574)
+08-18 11:17:13.870  6411  6411 I flutter : #35     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.870  6411  6411 I flutter : #36     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.870  6411  6411 I flutter : #37     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.870  6411  6411 I flutter : #38     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.870  6411  6411 I flutter : #39     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:17:13.870  6411  6411 I flutter : #40     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.870  6411  6411 I flutter : #41     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:17:13.871  6411  6411 I flutter : #42     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:17:13.871  6411  6411 I flutter : #43     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:17:13.871  6411  6411 I flutter : #44     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.871  6411  6411 I flutter : #45     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:17:13.871  6411  6411 I flutter : #46     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.871  6411  6411 I flutter : #47     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:17:13.871  6411  6411 I flutter : #48     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.871  6411  6411 I flutter : #49     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:17:13.871  6411  6411 I flutter : #50     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:17:13.871  6411  6411 I flutter : #51     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:17:13.871  6411  6411 I flutter : #52     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:17:13.872  6411  6411 I flutter : #53     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.872  6411  6411 I flutter : #54     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.872  6411  6411 I flutter : #55     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.872  6411  6411 I flutter : #56     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.872  6411  6411 I flutter : #57     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:17:13.872  6411  6411 I flutter : #58     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.872  6411  6411 I flutter : #59     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:17:13.872  6411  6411 I flutter : #60     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.872  6411  6411 I flutter : #61     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.872  6411  6411 I flutter : #62     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.872  6411  6411 I flutter : #63     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.872  6411  6411 I flutter : #64     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.873  6411  6411 I flutter : #65     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.873  6411  6411 I flutter : #66     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.873  6411  6411 I flutter : #67     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.873  6411  6411 I flutter : #68     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.873  6411  6411 I flutter : #69     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:17:13.873  6411  6411 I flutter : #70     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:17:13.873  6411  6411 I flutter : #71     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:17:13.873  6411  6411 I flutter : #72     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.873  6411  6411 I flutter : #73     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:17:13.873  6411  6411 I flutter : #74     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.874  6411  6411 I flutter : #75     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:17:13.874  6411  6411 I flutter : #76     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.874  6411  6411 I flutter : #77     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:17:13.874  6411  6411 I flutter : #78     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:17:13.874  6411  6411 I flutter : #79     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:17:13.874  6411  6411 I flutter : #80     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:17:13.874  6411  6411 I flutter : #81     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:17:13.874  6411  6411 I flutter : #82     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:17:13.874  6411  6411 I flutter : #83     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2616)
+08-18 11:17:13.874  6411  6411 I flutter : #84     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174)
+08-18 11:17:13.874  6411  6411 I flutter : #85     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187)
+08-18 11:17:13.874  6411  6411 I flutter : #86     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:629)
+08-18 11:17:13.875  6411  6411 I flutter : #87     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1304)
+08-18 11:17:13.875  6411  6411 I flutter : #88     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495)
+08-18 11:17:13.875  6411  6411 I flutter : #89     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430)
+08-18 11:17:13.875  6411  6411 I flutter : #90     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345)
+08-18 11:17:13.875  6411  6411 I flutter : #91     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198)
+08-18 11:17:13.875  6411  6411 I flutter : #92     _invoke (dart:ui/hooks.dart:356)
+08-18 11:17:13.875  6411  6411 I flutter : #93     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444)
+08-18 11:17:13.875  6411  6411 I flutter : #94     _drawFrame (dart:ui/hooks.dart:328)
+08-18 11:17:13.923  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:17:13.936  6411  6411 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:17:13.938  6411  6411 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:17:14.007  6411  6411 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:17:14.007  6411  6411 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:18:03.486  6411  6411 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:18:04.018  6411  6411 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:18:04.538  6411  6411 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:18:35.069  6411  6411 I SurfaceView@a237460: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{a237460 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@7c217b7[MainActivity]
+08-18 11:18:35.079  6411  6411 I SurfaceView@a237460: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{a237460 V.E...... ........ 0,0-1080,2273}
+08-18 11:18:35.150  6411  6411 I SurfaceView@a237460: windowStopped(true) false io.flutter.embedding.android.x{a237460 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@7c217b7[MainActivity]
+08-18 11:20:53.364  7462  7516 D nativeloader: Load /data/app/~~gJMeoYaF1RI7qqb0RRXYpA==/com.milan.datingapp.dating_app-ucQMVAn4D1NhhzqX1PGOfQ==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~gJMeoYaF1RI7qqb0RRXYpA==/com.milan.datingapp.dating_app-ucQMVAn4D1NhhzqX1PGOfQ==/base.apk): ok
+08-18 11:20:53.496  7462  7519 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:20:53.625  7462  7462 I SurfaceView@ab1dc87: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{ab1dc87 V.E...... ......I. 0,0-0,0} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:20:53.655  7462  7462 I SurfaceView@ab1dc87: windowStopped(false) true io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:20:53.664  7462  7462 I SurfaceView@ab1dc87: surfaceCreated 1 #8 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2273}
+08-18 11:20:53.769  7462  7462 I SurfaceView@ab1dc87: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2273}
+08-18 11:20:53.898  7462  7462 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:20:53.934  7462  7462 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:20:55.924  7462  7462 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:20:56.019  7462  7462 I flutter : ✅ Socket connected
+08-18 11:20:56.021  7462  7462 I flutter : 🎧 Listener status: APPROVED
+08-18 11:20:56.021  7462  7462 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 11:20:56.032  7462  7462 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:20:56.037  7462  7462 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:20:56.074  7462  7462 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:20:56.074  7462  7462 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:20:56.367  7462  7462 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:20:56.368  7462  7462 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:20:56.458  7462  7462 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:20:58.226  7462  7462 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:20:58.229  7462  7462 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:20:58.252  7462  7462 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:20:58.252  7462  7462 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:20:58.298  7462  7462 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:20:58.299  7462  7462 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:20:58.346  7462  7462 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:21:29.638  7462  7462 I SurfaceView@ab1dc87: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:21:29.639  7462  7462 I SurfaceView@ab1dc87: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273}
+08-18 11:21:29.737  7462  7462 I SurfaceView@ab1dc87: windowStopped(true) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:28:37.147  7462  7462 I SurfaceView@ab1dc87: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:28:37.169  7462  7462 I SurfaceView@ab1dc87: windowStopped(false) true io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:28:37.181  7462  7462 I SurfaceView@ab1dc87: surfaceCreated 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:28:37.206  7462  7462 I SurfaceView@ab1dc87: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2408}
+08-18 11:28:37.260  7462  7462 I SurfaceView@ab1dc87: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{ab1dc87 V.E...... ......ID 0,0-1080,2273}
+08-18 11:28:37.749  7462  7462 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:28:43.099  7462  7462 I SurfaceView@ab1dc87: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:28:43.102  7462  7462 I SurfaceView@ab1dc87: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273}
+08-18 11:28:43.186  7462  7462 I SurfaceView@ab1dc87: windowStopped(true) false io.flutter.embedding.android.x{ab1dc87 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@9a97213[MainActivity]
+08-18 11:29:21.539  8490  8524 D nativeloader: Load /data/app/~~FMfcKYPUGrKeD2_bV2F-EQ==/com.milan.datingapp.dating_app-gZCD5bnnPBQl9lZn-OeWow==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~FMfcKYPUGrKeD2_bV2F-EQ==/com.milan.datingapp.dating_app-gZCD5bnnPBQl9lZn-OeWow==/base.apk): ok
+08-18 11:29:21.640  8490  8527 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:29:21.747  8490  8490 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9edacf7 V.E...... ......I. 0,0-0,0} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:29:21.773  8490  8490 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:29:21.781  8490  8490 I SurfaceView@9edacf7: surfaceCreated 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:29:21.855  8490  8490 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:29:22.457  8490  8490 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:29:26.024  8490  8490 I flutter : [LOGIN] Waiting for Google account...
+08-18 11:29:31.031  8490  8490 I flutter : [LOGIN] Google account selected ✓
+08-18 11:29:31.031  8490  8490 I flutter : [LOGIN] Getting authentication tokens...
+08-18 11:29:31.133  8490  8490 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:29:31.333  8490  8490 I flutter : [LOGIN] Tokens received ✓
+08-18 11:29:31.333  8490  8490 I flutter : [LOGIN] Signing in with Firebase...
+08-18 11:29:32.488  8490  8490 I flutter : [LOGIN] Firebase sign-in successful ✓
+08-18 11:29:32.488  8490  8490 I flutter : [LOGIN] Getting server token...
+08-18 11:29:33.086  8490  8490 I flutter : [LOGIN] Server token ready ✓
+08-18 11:29:33.086  8490  8490 I flutter : [LOGIN] Connecting to server...
+08-18 11:29:33.089  8490  8490 I flutter : 🌐 [API Request] POST /auth/google
+08-18 11:29:33.188  8490  8490 I flutter : [LOGIN] Server login successful ✓
+08-18 11:29:33.188  8490  8490 I flutter : [LOGIN] Saving session...
+08-18 11:29:33.208  8490  8490 I flutter : [LOGIN] Session saved ✓
+08-18 11:29:33.208  8490  8490 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:29:33.208  8490  8490 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:29:33.224  8490  8490 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:29:33.280  8490  8490 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: ceae9871-bba2-46e3-bf7f-1bff5ede229e, userId: eff6c8a0-21dc-4bc7-9301-5c704e4f5ddd, balance: 976.5001, createdAt: 2026-08-16T03:26:25.367Z, updatedAt: 2026-08-16T08:02:55.687Z, transactions: [{id: 8c405fa3-d56c-4865-9163-fa84fda87822, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 10.8333, balanceBefore: 987.3334, balanceAfter: 976.5001, description: Call deduction for call 61e4a740-1c3d-466a-b080-3e3c26e8145a, refId: 61e4a740-1c3d-466a-b080-3e3c26e8145a, metadata: null, createdAt: 2026-08-16T08:02:55.690Z}, {id: 0785db88-0fdc-4502-b081-a04abb2bfbc9, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 11.3333, balanceBefore: 998.6667, balanceAfter: 987.3334, description: Call deduction for call a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, refId: a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, metadata: null, createdAt: 2026-08-16T07:12:34.647Z}, {id: 0f7e1b3d-ec5d-4c71-a7ff-9078520e4199,
+08-18 11:29:33.281  8490  8490 I flutter : [WalletProvider] Parsed from data.balance: 976.5001 (raw=976.5001, type=double)
+08-18 11:29:33.281  8490  8490 I flutter : [WalletProvider] Balance fetched successfully: 976.5001
+08-18 11:29:33.344  8490  8490 I flutter : ✅ Socket connected
+08-18 11:29:33.636  8490  8490 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:29:33.637  8490  8490 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:29:33.637  8490  8490 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:29:33.637  8490  8490 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 11:29:33.638  8490  8490 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:29:33.894  8490  8490 I flutter : ✅ Approved listener detected in MainScreen, redirecting to dashboard
+08-18 11:29:33.901  8490  8490 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:29:33.906  8490  8490 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:29:33.969  8490  8490 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:29:33.971  8490  8490 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:29:33.997  8490  8490 I flutter : type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:29:34.004  8490  8490 I flutter : #0      _WalletScreenState.build.<anonymous closure> (package:dating_app/features/wallet/presentation/screens/wallet_screen.dart:183)
+08-18 11:29:34.004  8490  8490 I flutter : #1      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552)
+08-18 11:29:34.004  8490  8490 I flutter : #2      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055)
+08-18 11:29:34.004  8490  8490 I flutter : #3      SliverMultiBoxAdaptorElement.createChild.<anonymous closure> (package:flutter/src/widgets/sliver.dart:1071)
+08-18 11:29:34.004  8490  8490 I flutter : #4      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101)
+08-18 11:29:34.004  8490  8490 I flutter : #5      SliverMultiBoxAdaptorElement.createChild (package:flutter/src/widgets/sliver.dart:1061)
+08-18 11:29:34.004  8490  8490 I flutter : #6      RenderSliverMultiBoxAdaptor._createOrObtainChild.<anonymous closure> (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:368)
+08-18 11:29:34.004  8490  8490 I flutter : #7      RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:2887)
+08-18 11:29:34.004  8490  8490 I flutter : #8      PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223)
+08-18 11:29:34.004  8490  8490 I flutter : #9      RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:2886)
+08-18 11:29:34.004  8490  8490 I flutter : #10     RenderSliverMultiBoxAdaptor._createOrObtainChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:357)
+08-18 11:29:34.004  8490  8490 I flutter : #11     RenderSliverMultiBoxAdaptor.addInitialChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:455)
+08-18 11:29:34.004  8490  8490 I flutter : #12     RenderSliverList.performLayout (package:flutter/src/rendering/sliver_list.dart:79)
+08-18 11:29:34.004  8490  8490 I flutter : #13     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #14     RenderSliverEdgeInsetsPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:133)
+08-18 11:29:34.004  8490  8490 I flutter : #15     RenderSliverPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:368)
+08-18 11:29:34.004  8490  8490 I flutter : #16     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #17     RenderViewportBase.layoutChildSequence (package:flutter/src/rendering/viewport.dart:673)
+08-18 11:29:34.004  8490  8490 I flutter : #18     RenderViewport._attemptLayout (package:flutter/src/rendering/viewport.dart:1684)
+08-18 11:29:34.004  8490  8490 I flutter : #19     RenderViewport.performLayout (package:flutter/src/rendering/viewport.dart:1575)
+08-18 11:29:34.004  8490  8490 I flutter : #20     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #22     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #23     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #24     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #25     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #26     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #27     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #28     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #29     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #30     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #31     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #32     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #33     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #34     RenderCustomPaint.performLayout (package:flutter/src/rendering/custom_paint.dart:574)
+08-18 11:29:34.004  8490  8490 I flutter : #35     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #36     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #37     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.004  8490  8490 I flutter : #38     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.004  8490  8490 I flutter : #39     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:29:34.004  8490  8490 I flutter : #40     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #41     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:29:34.005  8490  8490 I flutter : #42     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:29:34.005  8490  8490 I flutter : #43     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:29:34.005  8490  8490 I flutter : #44     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #45     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:29:34.005  8490  8490 I flutter : #46     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #47     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:29:34.005  8490  8490 I flutter : #48     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #49     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:29:34.005  8490  8490 I flutter : #50     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:29:34.005  8490  8490 I flutter : #51     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:29:34.005  8490  8490 I flutter : #52     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:29:34.005  8490  8490 I flutter : #53     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #54     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #55     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #56     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #57     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:29:34.005  8490  8490 I flutter : #58     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #59     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:29:34.005  8490  8490 I flutter : #60     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #61     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #62     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #63     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #64     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #65     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #66     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #67     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #68     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #69     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:29:34.005  8490  8490 I flutter : #70     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:29:34.005  8490  8490 I flutter : #71     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:29:34.005  8490  8490 I flutter : #72     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #73     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:29:34.005  8490  8490 I flutter : #74     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #75     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:29:34.005  8490  8490 I flutter : #76     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #77     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:29:34.005  8490  8490 I flutter : #78     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:29:34.005  8490  8490 I flutter : #79     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:29:34.005  8490  8490 I flutter : #80     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:29:34.005  8490  8490 I flutter : #81     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:29:34.005  8490  8490 I flutter : #82     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:29:34.005  8490  8490 I flutter : #83     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2616)
+08-18 11:29:34.005  8490  8490 I flutter : #84     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174)
+08-18 11:29:34.005  8490  8490 I flutter : #85     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187)
+08-18 11:29:34.005  8490  8490 I flutter : #86     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:629)
+08-18 11:29:34.005  8490  8490 I flutter : #87     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1304)
+08-18 11:29:34.006  8490  8490 I flutter : #88     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495)
+08-18 11:29:34.006  8490  8490 I flutter : #89     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430)
+08-18 11:29:34.006  8490  8490 I flutter : #90     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345)
+08-18 11:29:34.006  8490  8490 I flutter : #91     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198)
+08-18 11:29:34.006  8490  8490 I flutter : #92     _invoke (dart:ui/hooks.dart:356)
+08-18 11:29:34.006  8490  8490 I flutter : #93     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444)
+08-18 11:29:34.006  8490  8490 I flutter : #94     _drawFrame (dart:ui/hooks.dart:328)
+08-18 11:29:34.049  8490  8490 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:29:34.054  8490  8490 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:29:34.054  8490  8490 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:29:34.059  8490  8490 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:29:34.161  8490  8490 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:29:34.161  8490  8490 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:29:41.220  8490  8490 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:29:41.224  8490  8490 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:29:41.245  8490  8490 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:29:41.246  8490  8490 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:29:41.344  8490  8490 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:29:41.346  8490  8490 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:29:41.392  8490  8490 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:29:42.264  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:29:45.510  8490  8490 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:29:45.959  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:29:46.458  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:29:49.053  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:29:49.886  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:29:50.184  8490  8490 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:30:20.702  8490  8490 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:30:20.703  8490  8490 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 11:30:20.758  8490  8490 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:33:28.925  8490  8490 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:33:28.951  8490  8490 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:33:28.961  8490  8490 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 11:33:28.997  8490  8490 I SurfaceView@9edacf7: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 11:33:29.072  8490  8490 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:33:29.682  8490  8490 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:33:31.492  8490  8490 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:33:31.493  8490  8490 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 11:33:31.558  8490  8490 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:33:33.669  9850  9882 D nativeloader: Load /data/app/~~FMfcKYPUGrKeD2_bV2F-EQ==/com.milan.datingapp.dating_app-gZCD5bnnPBQl9lZn-OeWow==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~FMfcKYPUGrKeD2_bV2F-EQ==/com.milan.datingapp.dating_app-gZCD5bnnPBQl9lZn-OeWow==/base.apk): ok
+08-18 11:33:33.798  9850  9889 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:33:33.906  9850  9850 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9a294c6 V.E...... ......I. 0,0-0,0} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:33:33.930  9850  9850 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:33:33.939  9850  9850 I SurfaceView@9a294c6: surfaceCreated 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:33:34.014  9850  9850 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:33:34.119  9850  9850 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:33:34.145  9850  9850 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:33:36.139  9850  9850 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:33:36.454  9850  9850 I flutter : 🎧 Listener status: APPROVED
+08-18 11:33:36.454  9850  9850 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 11:33:36.467  9850  9850 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:33:36.471  9850  9850 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:33:36.501  9850  9850 I flutter : ✅ Socket connected
+08-18 11:33:36.504  9850  9850 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:33:36.505  9850  9850 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:33:36.596  9850  9850 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:33:36.597  9850  9850 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:33:36.641  9850  9850 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:33:37.946  9850  9850 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:33:38.844  9850  9850 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:33:39.975  9850  9850 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:33:41.323  9850  9850 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:34:15.584  9850  9850 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:35:31.046  9850  9850 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:35:31.047  9850  9850 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:35:31.125  9850  9850 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:41:11.562  9850  9850 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:41:11.592  9850  9850 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:41:11.602  9850  9850 I SurfaceView@9a294c6: surfaceCreated 1 #1 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408}
+08-18 11:41:11.637  9850  9850 I SurfaceView@9a294c6: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408}
+08-18 11:41:11.695  9850  9850 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:41:12.072  9850  9850 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:41:13.754  9850  9850 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:41:13.756  9850  9850 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:41:13.822  9850  9850 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:43:34.381 11036 11068 D nativeloader: Load /data/app/~~ee12LiDX_t0QHsm5n5Lvmg==/com.milan.datingapp.dating_app-baMceydInhoD9l4Xcl308w==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~ee12LiDX_t0QHsm5n5Lvmg==/com.milan.datingapp.dating_app-baMceydInhoD9l4Xcl308w==/base.apk): ok
+08-18 11:43:34.461 11036 11074 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:43:34.582 11036 11036 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9edacf7 V.E...... ......I. 0,0-0,0} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:43:34.608 11036 11036 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:43:34.621 11036 11036 I SurfaceView@9edacf7: surfaceCreated 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:43:34.701 11036 11036 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:43:35.242 11036 11036 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:43:39.199 11036 11036 I flutter : [LOGIN] Waiting for Google account...
+08-18 11:43:47.069 11036 11036 I flutter : [LOGIN] Google account selected ✓
+08-18 11:43:47.069 11036 11036 I flutter : [LOGIN] Getting authentication tokens...
+08-18 11:43:47.134 11036 11036 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:43:47.709 11036 11036 I flutter : [LOGIN] Tokens received ✓
+08-18 11:43:47.709 11036 11036 I flutter : [LOGIN] Signing in with Firebase...
+08-18 11:43:50.579 11036 11036 I flutter : [LOGIN] Firebase sign-in successful ✓
+08-18 11:43:50.579 11036 11036 I flutter : [LOGIN] Getting server token...
+08-18 11:43:51.164 11036 11036 I flutter : [LOGIN] Server token ready ✓
+08-18 11:43:51.164 11036 11036 I flutter : [LOGIN] Connecting to server...
+08-18 11:43:51.173 11036 11036 I flutter : 🌐 [API Request] POST /auth/google
+08-18 11:43:51.268 11036 11036 I flutter : [LOGIN] Server login successful ✓
+08-18 11:43:51.269 11036 11036 I flutter : [LOGIN] Saving session...
+08-18 11:43:51.277 11036 11036 I flutter : [LOGIN] Session saved ✓
+08-18 11:43:51.278 11036 11036 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:43:51.278 11036 11036 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 11:43:51.291 11036 11036 I flutter : 🌐 [API Request] GET /wallet
+08-18 11:43:51.335 11036 11036 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: ceae9871-bba2-46e3-bf7f-1bff5ede229e, userId: eff6c8a0-21dc-4bc7-9301-5c704e4f5ddd, balance: 976.5001, createdAt: 2026-08-16T03:26:25.367Z, updatedAt: 2026-08-16T08:02:55.687Z, transactions: [{id: 8c405fa3-d56c-4865-9163-fa84fda87822, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 10.8333, balanceBefore: 987.3334, balanceAfter: 976.5001, description: Call deduction for call 61e4a740-1c3d-466a-b080-3e3c26e8145a, refId: 61e4a740-1c3d-466a-b080-3e3c26e8145a, metadata: null, createdAt: 2026-08-16T08:02:55.690Z}, {id: 0785db88-0fdc-4502-b081-a04abb2bfbc9, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 11.3333, balanceBefore: 998.6667, balanceAfter: 987.3334, description: Call deduction for call a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, refId: a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, metadata: null, createdAt: 2026-08-16T07:12:34.647Z}, {id: 0f7e1b3d-ec5d-4c71-a7ff-9078520e4199,
+08-18 11:43:51.336 11036 11036 I flutter : [WalletProvider] Parsed from data.balance: 976.5001 (raw=976.5001, type=double)
+08-18 11:43:51.336 11036 11036 I flutter : [WalletProvider] Balance fetched successfully: 976.5001
+08-18 11:43:51.382 11036 11036 I flutter : ✅ Socket connected
+08-18 11:43:51.690 11036 11036 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:43:51.691 11036 11036 I flutter : 🌐 [API Request] GET /discovery
+08-18 11:43:51.692 11036 11036 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:43:51.692 11036 11036 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 11:43:51.692 11036 11036 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:43:51.743 11036 11036 I flutter : ✅ Approved listener detected in MainScreen, redirecting to dashboard
+08-18 11:43:51.820 11036 11036 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:43:51.844 11036 11036 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:43:51.898 11036 11036 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:43:51.903 11036 11036 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:43:51.904 11036 11036 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:43:51.956 11036 11036 I flutter : type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:43:51.963 11036 11036 I flutter : #0      _WalletScreenState.build.<anonymous closure> (package:dating_app/features/wallet/presentation/screens/wallet_screen.dart:183)
+08-18 11:43:51.963 11036 11036 I flutter : #1      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552)
+08-18 11:43:51.963 11036 11036 I flutter : #2      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055)
+08-18 11:43:51.963 11036 11036 I flutter : #3      SliverMultiBoxAdaptorElement.createChild.<anonymous closure> (package:flutter/src/widgets/sliver.dart:1071)
+08-18 11:43:51.963 11036 11036 I flutter : #4      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101)
+08-18 11:43:51.963 11036 11036 I flutter : #5      SliverMultiBoxAdaptorElement.createChild (package:flutter/src/widgets/sliver.dart:1061)
+08-18 11:43:51.963 11036 11036 I flutter : #6      RenderSliverMultiBoxAdaptor._createOrObtainChild.<anonymous closure> (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:368)
+08-18 11:43:51.963 11036 11036 I flutter : #7      RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:2887)
+08-18 11:43:51.963 11036 11036 I flutter : #8      PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223)
+08-18 11:43:51.963 11036 11036 I flutter : #9      RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:2886)
+08-18 11:43:51.963 11036 11036 I flutter : #10     RenderSliverMultiBoxAdaptor._createOrObtainChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:357)
+08-18 11:43:51.963 11036 11036 I flutter : #11     RenderSliverMultiBoxAdaptor.addInitialChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:455)
+08-18 11:43:51.963 11036 11036 I flutter : #12     RenderSliverList.performLayout (package:flutter/src/rendering/sliver_list.dart:79)
+08-18 11:43:51.963 11036 11036 I flutter : #13     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #14     RenderSliverEdgeInsetsPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:133)
+08-18 11:43:51.963 11036 11036 I flutter : #15     RenderSliverPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:368)
+08-18 11:43:51.963 11036 11036 I flutter : #16     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #17     RenderViewportBase.layoutChildSequence (package:flutter/src/rendering/viewport.dart:673)
+08-18 11:43:51.963 11036 11036 I flutter : #18     RenderViewport._attemptLayout (package:flutter/src/rendering/viewport.dart:1684)
+08-18 11:43:51.963 11036 11036 I flutter : #19     RenderViewport.performLayout (package:flutter/src/rendering/viewport.dart:1575)
+08-18 11:43:51.963 11036 11036 I flutter : #20     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #22     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #23     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #24     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #25     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #26     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #27     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #28     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #29     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #30     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #31     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #32     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #33     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #34     RenderCustomPaint.performLayout (package:flutter/src/rendering/custom_paint.dart:574)
+08-18 11:43:51.963 11036 11036 I flutter : #35     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #36     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #37     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #38     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.963 11036 11036 I flutter : #39     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:43:51.963 11036 11036 I flutter : #40     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.963 11036 11036 I flutter : #41     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:43:51.963 11036 11036 I flutter : #42     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:43:51.963 11036 11036 I flutter : #43     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:43:51.964 11036 11036 I flutter : #44     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #45     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:43:51.964 11036 11036 I flutter : #46     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #47     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:43:51.964 11036 11036 I flutter : #48     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #49     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:43:51.964 11036 11036 I flutter : #50     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:43:51.964 11036 11036 I flutter : #51     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:43:51.964 11036 11036 I flutter : #52     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:43:51.964 11036 11036 I flutter : #53     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #54     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #55     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #56     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #57     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 11:43:51.964 11036 11036 I flutter : #58     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #59     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:43:51.964 11036 11036 I flutter : #60     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #61     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #62     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #63     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #64     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #65     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #66     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #67     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #68     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #69     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 11:43:51.964 11036 11036 I flutter : #70     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 11:43:51.964 11036 11036 I flutter : #71     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 11:43:51.964 11036 11036 I flutter : #72     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #73     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 11:43:51.964 11036 11036 I flutter : #74     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #75     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 11:43:51.964 11036 11036 I flutter : #76     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #77     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 11:43:51.964 11036 11036 I flutter : #78     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 11:43:51.964 11036 11036 I flutter : #79     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 11:43:51.964 11036 11036 I flutter : #80     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 11:43:51.964 11036 11036 I flutter : #81     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 11:43:51.964 11036 11036 I flutter : #82     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 11:43:51.964 11036 11036 I flutter : #83     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2616)
+08-18 11:43:51.964 11036 11036 I flutter : #84     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174)
+08-18 11:43:51.964 11036 11036 I flutter : #85     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187)
+08-18 11:43:51.964 11036 11036 I flutter : #86     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:629)
+08-18 11:43:51.964 11036 11036 I flutter : #87     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1304)
+08-18 11:43:51.964 11036 11036 I flutter : #88     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495)
+08-18 11:43:51.964 11036 11036 I flutter : #89     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430)
+08-18 11:43:51.964 11036 11036 I flutter : #90     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345)
+08-18 11:43:51.964 11036 11036 I flutter : #91     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198)
+08-18 11:43:51.964 11036 11036 I flutter : #92     _invoke (dart:ui/hooks.dart:356)
+08-18 11:43:51.964 11036 11036 I flutter : #93     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444)
+08-18 11:43:51.964 11036 11036 I flutter : #94     _drawFrame (dart:ui/hooks.dart:328)
+08-18 11:43:52.018 11036 11036 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:43:52.065 11036 11036 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:43:52.070 11036 11036 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:43:52.091 11036 11036 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:43:52.199 11036 11036 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:43:55.628 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:43:56.193 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:43:59.888 11036 11036 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:43:59.891 11036 11036 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:43:59.912 11036 11036 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:43:59.912 11036 11036 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:44:00.003 11036 11036 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:44:00.005 11036 11036 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:44:00.080 11036 11036 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:44:00.949 11036 11036 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:44:01.664 11036 11036 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:44:02.384 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:44:02.995 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:44:34.815 11036 11036 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:44:34.816 11036 11036 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 11:44:35.001 11036 11036 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:45:55.856 11036 11036 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:45:55.909 11036 11036 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:45:55.918 11036 11036 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 11:45:55.949 11036 11036 I SurfaceView@9edacf7: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 11:45:56.000 11036 11036 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 11:45:56.707 11036 11036 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:46:01.882 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:46:05.759 11036 11036 I flutter : 🌐 [API Request] GET /wallet/packages
+08-18 11:46:09.703 11036 11036 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:46:10.839 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:46:11.321 11036 11036 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:46:41.804 11036 11036 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:46:41.805 11036 11036 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 11:46:41.903 11036 11036 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 11:54:36.438 12743 12779 D nativeloader: Load /data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk): ok
+08-18 11:54:36.588 12743 12781 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:54:36.710 12743 12743 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9a294c6 V.E...... ......I. 0,0-0,0} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:36.733 12743 12743 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:36.740 12743 12743 I SurfaceView@9a294c6: surfaceCreated 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:54:36.835 12743 12743 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:54:36.978 12743 12743 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:54:37.013 12743 12743 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:54:39.000 12743 12743 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:54:39.322 12743 12743 I flutter : 🎧 Listener status: APPROVED
+08-18 11:54:39.323 12743 12743 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 11:54:39.329 12743 12743 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:54:39.333 12743 12743 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:54:39.360 12743 12743 I flutter : ✅ Socket connected
+08-18 11:54:39.362 12743 12743 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:54:39.362 12743 12743 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:54:39.527 12743 12743 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:54:39.529 12743 12743 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:54:39.603 12743 12743 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:54:42.601 12743 12743 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:54:43.134 12743 12743 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:54:44.052 12743 12743 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:44.053 12743 12743 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:54:44.107 12743 12743 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:46.225 12869 12905 D nativeloader: Load /data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk): ok
+08-18 11:54:46.313 12869 12907 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:54:46.435 12869 12869 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9a294c6 V.E...... ......I. 0,0-0,0} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:46.459 12869 12869 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:54:46.464 12869 12869 I SurfaceView@9a294c6: surfaceCreated 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:54:46.547 12869 12869 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:54:46.645 12869 12869 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:54:46.669 12869 12869 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:54:48.663 12869 12869 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:54:48.891 12869 12869 I flutter : 🎧 Listener status: APPROVED
+08-18 11:54:48.891 12869 12869 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 11:54:48.894 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:54:48.897 12869 12869 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:54:48.924 12869 12869 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:54:48.925 12869 12869 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:54:48.949 12869 12869 I flutter : ✅ Socket connected
+08-18 11:54:49.022 12869 12869 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:54:49.023 12869 12869 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:54:49.070 12869 12869 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:55:02.735 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:55:03.400 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:55:03.699 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:55:09.469 12869 12869 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:55:39.522 12869 12869 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:55:39.523 12869 12869 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:55:39.583 12869 12869 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:56:49.225 12869 12869 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:56:49.275 12869 12869 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:56:49.281 12869 12869 I SurfaceView@9a294c6: surfaceCreated 1 #1 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408}
+08-18 11:56:49.310 12869 12869 I SurfaceView@9a294c6: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2408}
+08-18 11:56:49.367 12869 12869 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:56:50.025 12869 12869 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:56:51.134 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:04.445 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:04.961 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:05.859 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:06.824 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:07.324 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:07.856 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:08.722 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:10.136 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:10.785 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:13.497 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:14.079 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:16.675 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:17.956 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:19.254 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:19.836 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:20.668 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:21.950 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:24.229 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:25.127 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:25.610 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:26.092 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:30.263 12869 12869 I flutter : ⚠️ Session refresh failed on app resume
+08-18 11:57:34.945 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:57:35.315 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:36.429 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:37.006 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:37.789 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:57:38.372 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:02.648 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:14.013 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:14.345 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:14.912 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:15.210 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:16.326 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:16.691 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 11 requests in last minute!
+08-18 11:58:16.692 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:16.896 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 12 requests in last minute!
+08-18 11:58:16.897 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:17.074 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 13 requests in last minute!
+08-18 11:58:17.074 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:17.274 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 14 requests in last minute!
+08-18 11:58:17.274 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:17.473 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 15 requests in last minute!
+08-18 11:58:17.474 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:17.656 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 16 requests in last minute!
+08-18 11:58:17.656 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:17.940 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 17 requests in last minute!
+08-18 11:58:17.940 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:18.140 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 18 requests in last minute!
+08-18 11:58:18.140 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:18.356 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 19 requests in last minute!
+08-18 11:58:18.356 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:18.572 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 20 requests in last minute!
+08-18 11:58:18.572 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:18.788 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 21 requests in last minute!
+08-18 11:58:18.788 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:18.975 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 22 requests in last minute!
+08-18 11:58:18.975 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:19.171 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 23 requests in last minute!
+08-18 11:58:19.171 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:19.586 12869 12869 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 24 requests in last minute!
+08-18 11:58:19.587 12869 12869 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:20.103 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:30.054 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:31.052 12869 12869 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:33.780 12869 12869 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:58:33.781 12869 12869 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:58:33.870 12869 12869 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:58:35.498 13278 13316 D nativeloader: Load /data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~FQF2qgD6b4RG3iZTeYi18w==/com.milan.datingapp.dating_app-DGlRel11ugFPzqHmTPtk6A==/base.apk): ok
+08-18 11:58:35.608 13278 13318 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 11:58:35.719 13278 13278 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9a294c6 V.E...... ......I. 0,0-0,0} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:58:35.743 13278 13278 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:58:35.751 13278 13278 I SurfaceView@9a294c6: surfaceCreated 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:58:35.829 13278 13278 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 11:58:35.927 13278 13278 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 11:58:35.954 13278 13278 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 11:58:37.949 13278 13278 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:58:38.119 13278 13278 I flutter : 🎧 Listener status: APPROVED
+08-18 11:58:38.119 13278 13278 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 11:58:38.125 13278 13278 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:38.128 13278 13278 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 11:58:38.154 13278 13278 I flutter : ✅ Socket connected
+08-18 11:58:38.156 13278 13278 I flutter : 🌐 [API Request] GET /calls/history
+08-18 11:58:38.156 13278 13278 I flutter : 🌐 [API Request] GET /users/me
+08-18 11:58:38.249 13278 13278 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 11:58:38.250 13278 13278 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 11:58:38.370 13278 13278 I flutter : ✅ Listener data loaded: APPROVED
+08-18 11:58:41.201 13278 13278 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 11:58:43.415 13278 13278 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 11:58:59.854 13278 13278 I SurfaceView@9a294c6: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 11:58:59.855 13278 13278 I SurfaceView@9a294c6: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273}
+08-18 11:58:59.886 13278 13278 I SurfaceView@9a294c6: windowStopped(true) false io.flutter.embedding.android.x{9a294c6 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 12:13:32.610 14928 14963 D nativeloader: Load /data/app/~~GM60Tcu-Y04Q1lWMXHvzig==/com.milan.datingapp.dating_app-FPI3U-IX_QnChxf9C3PTvQ==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~GM60Tcu-Y04Q1lWMXHvzig==/com.milan.datingapp.dating_app-FPI3U-IX_QnChxf9C3PTvQ==/base.apk): ok
+08-18 12:13:32.689 14928 14967 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 12:13:32.804 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9edacf7 V.E...... ......I. 0,0-0,0} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:13:32.825 14928 14928 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:13:32.833 14928 14928 I SurfaceView@9edacf7: surfaceCreated 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:13:32.912 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:13:33.447 14928 14928 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 12:13:36.191 14928 14928 I flutter : [LOGIN] Waiting for Google account...
+08-18 12:13:41.405 14928 14928 I flutter : [LOGIN] Google account selected ✓
+08-18 12:13:41.406 14928 14928 I flutter : [LOGIN] Getting authentication tokens...
+08-18 12:13:41.454 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:13:41.747 14928 14928 I flutter : [LOGIN] Tokens received ✓
+08-18 12:13:41.747 14928 14928 I flutter : [LOGIN] Signing in with Firebase...
+08-18 12:13:42.998 14928 14928 I flutter : [LOGIN] Firebase sign-in successful ✓
+08-18 12:13:42.998 14928 14928 I flutter : [LOGIN] Getting server token...
+08-18 12:13:43.552 14928 14928 I flutter : [LOGIN] Server token ready ✓
+08-18 12:13:43.552 14928 14928 I flutter : [LOGIN] Connecting to server...
+08-18 12:13:43.555 14928 14928 I flutter : 🌐 [API Request] POST /auth/google
+08-18 12:13:43.653 14928 14928 I flutter : [LOGIN] Server login successful ✓
+08-18 12:13:43.653 14928 14928 I flutter : [LOGIN] Saving session...
+08-18 12:13:43.662 14928 14928 I flutter : [LOGIN] Session saved ✓
+08-18 12:13:43.662 14928 14928 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 12:13:43.662 14928 14928 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 12:13:43.676 14928 14928 I flutter : 🌐 [API Request] GET /wallet
+08-18 12:13:43.733 14928 14928 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: ceae9871-bba2-46e3-bf7f-1bff5ede229e, userId: eff6c8a0-21dc-4bc7-9301-5c704e4f5ddd, balance: 976.5001, createdAt: 2026-08-16T03:26:25.367Z, updatedAt: 2026-08-16T08:02:55.687Z, transactions: [{id: 8c405fa3-d56c-4865-9163-fa84fda87822, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 10.8333, balanceBefore: 987.3334, balanceAfter: 976.5001, description: Call deduction for call 61e4a740-1c3d-466a-b080-3e3c26e8145a, refId: 61e4a740-1c3d-466a-b080-3e3c26e8145a, metadata: null, createdAt: 2026-08-16T08:02:55.690Z}, {id: 0785db88-0fdc-4502-b081-a04abb2bfbc9, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 11.3333, balanceBefore: 998.6667, balanceAfter: 987.3334, description: Call deduction for call a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, refId: a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, metadata: null, createdAt: 2026-08-16T07:12:34.647Z}, {id: 0f7e1b3d-ec5d-4c71-a7ff-9078520e4199,
+08-18 12:13:43.734 14928 14928 I flutter : [WalletProvider] Parsed from data.balance: 976.5001 (raw=976.5001, type=double)
+08-18 12:13:43.736 14928 14928 I flutter : [WalletProvider] Balance fetched successfully: 976.5001
+08-18 12:13:43.776 14928 14928 I flutter : ✅ Socket connected
+08-18 12:13:44.083 14928 14928 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:13:44.083 14928 14928 I flutter : 🌐 [API Request] GET /discovery
+08-18 12:13:44.084 14928 14928 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:13:44.084 14928 14928 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 12:13:44.084 14928 14928 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:13:44.186 14928 14928 I flutter : ✅ Approved listener detected in MainScreen, redirecting to dashboard
+08-18 12:13:44.235 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:13:44.239 14928 14928 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 12:13:44.302 14928 14928 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:13:44.303 14928 14928 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:13:44.614 14928 14928 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:13:44.661 14928 14928 I flutter : type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:13:44.668 14928 14928 I flutter : #0      _WalletScreenState.build.<anonymous closure> (package:dating_app/features/wallet/presentation/screens/wallet_screen.dart:183)
+08-18 12:13:44.668 14928 14928 I flutter : #1      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552)
+08-18 12:13:44.668 14928 14928 I flutter : #2      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055)
+08-18 12:13:44.668 14928 14928 I flutter : #3      SliverMultiBoxAdaptorElement.createChild.<anonymous closure> (package:flutter/src/widgets/sliver.dart:1071)
+08-18 12:13:44.668 14928 14928 I flutter : #4      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101)
+08-18 12:13:44.668 14928 14928 I flutter : #5      SliverMultiBoxAdaptorElement.createChild (package:flutter/src/widgets/sliver.dart:1061)
+08-18 12:13:44.668 14928 14928 I flutter : #6      RenderSliverMultiBoxAdaptor._createOrObtainChild.<anonymous closure> (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:368)
+08-18 12:13:44.668 14928 14928 I flutter : #7      RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:2887)
+08-18 12:13:44.668 14928 14928 I flutter : #8      PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223)
+08-18 12:13:44.668 14928 14928 I flutter : #9      RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:2886)
+08-18 12:13:44.668 14928 14928 I flutter : #10     RenderSliverMultiBoxAdaptor._createOrObtainChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:357)
+08-18 12:13:44.668 14928 14928 I flutter : #11     RenderSliverMultiBoxAdaptor.addInitialChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:455)
+08-18 12:13:44.668 14928 14928 I flutter : #12     RenderSliverList.performLayout (package:flutter/src/rendering/sliver_list.dart:79)
+08-18 12:13:44.668 14928 14928 I flutter : #13     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #14     RenderSliverEdgeInsetsPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:133)
+08-18 12:13:44.668 14928 14928 I flutter : #15     RenderSliverPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:368)
+08-18 12:13:44.668 14928 14928 I flutter : #16     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #17     RenderViewportBase.layoutChildSequence (package:flutter/src/rendering/viewport.dart:673)
+08-18 12:13:44.668 14928 14928 I flutter : #18     RenderViewport._attemptLayout (package:flutter/src/rendering/viewport.dart:1684)
+08-18 12:13:44.668 14928 14928 I flutter : #19     RenderViewport.performLayout (package:flutter/src/rendering/viewport.dart:1575)
+08-18 12:13:44.668 14928 14928 I flutter : #20     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #22     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #23     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #24     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #25     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #26     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #27     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #28     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #29     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #30     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #31     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #32     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #33     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #34     RenderCustomPaint.performLayout (package:flutter/src/rendering/custom_paint.dart:574)
+08-18 12:13:44.668 14928 14928 I flutter : #35     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #36     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #37     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.668 14928 14928 I flutter : #38     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.668 14928 14928 I flutter : #39     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 12:13:44.668 14928 14928 I flutter : #40     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #41     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 12:13:44.669 14928 14928 I flutter : #42     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 12:13:44.669 14928 14928 I flutter : #43     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 12:13:44.669 14928 14928 I flutter : #44     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #45     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:13:44.669 14928 14928 I flutter : #46     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #47     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 12:13:44.669 14928 14928 I flutter : #48     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #49     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 12:13:44.669 14928 14928 I flutter : #50     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 12:13:44.669 14928 14928 I flutter : #51     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 12:13:44.669 14928 14928 I flutter : #52     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 12:13:44.669 14928 14928 I flutter : #53     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #54     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #55     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #56     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #57     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 12:13:44.669 14928 14928 I flutter : #58     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #59     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:13:44.669 14928 14928 I flutter : #60     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #61     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #62     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #63     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #64     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #65     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #66     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #67     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #68     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #69     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 12:13:44.669 14928 14928 I flutter : #70     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 12:13:44.669 14928 14928 I flutter : #71     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 12:13:44.669 14928 14928 I flutter : #72     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #73     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:13:44.669 14928 14928 I flutter : #74     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #75     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:13:44.669 14928 14928 I flutter : #76     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #77     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 12:13:44.669 14928 14928 I flutter : #78     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:13:44.669 14928 14928 I flutter : #79     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 12:13:44.669 14928 14928 I flutter : #80     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 12:13:44.669 14928 14928 I flutter : #81     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 12:13:44.669 14928 14928 I flutter : #82     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 12:13:44.669 14928 14928 I flutter : #83     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2616)
+08-18 12:13:44.669 14928 14928 I flutter : #84     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174)
+08-18 12:13:44.669 14928 14928 I flutter : #85     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187)
+08-18 12:13:44.669 14928 14928 I flutter : #86     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:629)
+08-18 12:13:44.669 14928 14928 I flutter : #87     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1304)
+08-18 12:13:44.669 14928 14928 I flutter : #88     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495)
+08-18 12:13:44.669 14928 14928 I flutter : #89     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430)
+08-18 12:13:44.669 14928 14928 I flutter : #90     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345)
+08-18 12:13:44.669 14928 14928 I flutter : #91     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198)
+08-18 12:13:44.670 14928 14928 I flutter : #92     _invoke (dart:ui/hooks.dart:356)
+08-18 12:13:44.670 14928 14928 I flutter : #93     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444)
+08-18 12:13:44.670 14928 14928 I flutter : #94     _drawFrame (dart:ui/hooks.dart:328)
+08-18 12:13:44.744 14928 14928 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:13:44.806 14928 14928 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:13:44.810 14928 14928 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:13:44.811 14928 14928 I flutter : ℹ️ Not a listener (expected for regular users): Null check operator used on a null value
+08-18 12:13:44.815 14928 14928 E flutter : [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Null check operator used on a null value
+08-18 12:13:44.815 14928 14928 E flutter : #0      State.setState (package:flutter/src/widgets/framework.dart:1219)
+08-18 12:13:44.815 14928 14928 E flutter : #1      _ProfileScreenState._load (package:dating_app/features/profile/presentation/screens/profile_screen.dart:64)
+08-18 12:13:44.815 14928 14928 E flutter : <asynchronous suspension>
+08-18 12:13:44.815 14928 14928 E flutter : 
+08-18 12:13:44.816 14928 14928 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:13:44.889 14928 14928 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:13:55.514 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:13:55.518 14928 14928 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 12:13:55.540 14928 14928 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:13:55.541 14928 14928 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:13:55.684 14928 14928 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:13:55.685 14928 14928 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:13:55.787 14928 14928 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:13:56.382 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:13:56.841 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:57.046 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:13:57.208 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:57.356 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:57.491 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:57.613 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:13:57.723 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:57.939 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:58.090 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:58.256 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:13:58.389 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:58.555 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:58.771 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:58.976 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:13:59.187 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:13:59.353 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:14:03.048 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:14:03.631 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:04.363 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:05.078 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:05.315 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:14:06.044 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:07.474 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:09.005 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:09.842 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:14:11.168 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:14:12.316 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:14:44.281 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:14:44.282 14928 14928 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:14:44.336 14928 14928 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:15:52.600 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:15:52.638 14928 14928 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:15:52.644 14928 14928 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:15:52.672 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:15:52.734 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:15:53.356 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:15:54.176 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:15:54.442 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:15:55.994 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:00.616 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:02.978 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:03.578 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:04.576 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:05.091 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:05.341 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:05.557 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:05.756 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:05.957 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:06.222 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:06.372 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:06.556 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:11.334 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:11.335 14928 14928 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:16:11.417 14928 14928 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:12.315 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:12.358 14928 14928 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:12.367 14928 14928 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:16:12.394 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:16:12.660 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:16:23.428 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:24.260 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:25.741 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:27.039 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:28.053 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:28.685 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:30.367 14928 14928 I flutter : 🚨 [API FLOOD WARNING] PATCH /listeners/status: 11 requests in last minute!
+08-18 12:16:30.367 14928 14928 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:16:30.848 14928 14928 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:16:32.347 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:32.348 14928 14928 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:16:32.396 14928 14928 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:33.861 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:33.888 14928 14928 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:16:33.895 14928 14928 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:16:33.929 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:16:34.108 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:16:37.008 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:37.013 14928 14928 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 12:16:37.039 14928 14928 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:16:37.040 14928 14928 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:16:37.162 14928 14928 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:16:37.163 14928 14928 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:16:37.213 14928 14928 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:16:43.122 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:16:44.160 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:16:44.693 14928 14928 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:17:15.060 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:17:15.061 14928 14928 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:17:15.159 14928 14928 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:20:24.830 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:20:24.857 14928 14928 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:20:24.865 14928 14928 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:20:24.892 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:20:24.958 14928 14928 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:20:25.627 14928 14928 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:20:57.150 14928 14928 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:20:57.151 14928 14928 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:20:57.277 14928 14928 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@5a00f2c[MainActivity]
+08-18 12:29:17.861 17763 17797 D nativeloader: Load /data/app/~~G1aMaGXpVk7NXkj4_hk0Tg==/com.milan.datingapp.dating_app-YsD6yk04X7Cs-VR3FjnCug==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~G1aMaGXpVk7NXkj4_hk0Tg==/com.milan.datingapp.dating_app-YsD6yk04X7Cs-VR3FjnCug==/base.apk): ok
+08-18 12:29:17.963 17763 17801 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 12:29:18.129 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9edacf7 V.E...... ......I. 0,0-0,0} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:18.159 17763 17763 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:18.166 17763 17763 I SurfaceView@9edacf7: surfaceCreated 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:29:18.270 17763 17763 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:29:18.923 17763 17763 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 12:29:27.096 17763 17763 I flutter : [LOGIN] Waiting for Google account...
+08-18 12:29:32.902 17763 17763 I flutter : [LOGIN] Google account selected ✓
+08-18 12:29:32.902 17763 17763 I flutter : [LOGIN] Getting authentication tokens...
+08-18 12:29:33.025 17763 17763 I flutter : [LOGIN] Tokens received ✓
+08-18 12:29:33.026 17763 17763 I flutter : [LOGIN] Signing in with Firebase...
+08-18 12:29:33.035 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:29:34.259 17763 17763 I flutter : [LOGIN] Firebase sign-in successful ✓
+08-18 12:29:34.259 17763 17763 I flutter : [LOGIN] Getting server token...
+08-18 12:29:34.886 17763 17763 I flutter : [LOGIN] Server token ready ✓
+08-18 12:29:34.886 17763 17763 I flutter : [LOGIN] Connecting to server...
+08-18 12:29:34.894 17763 17763 I flutter : 🌐 [API Request] POST /auth/google
+08-18 12:29:35.006 17763 17763 I flutter : [LOGIN] Server login successful ✓
+08-18 12:29:35.006 17763 17763 I flutter : [LOGIN] Saving session...
+08-18 12:29:35.022 17763 17763 I flutter : [LOGIN] Session saved ✓
+08-18 12:29:35.022 17763 17763 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 12:29:35.022 17763 17763 I flutter : [WalletProvider] Fetching balance from API: /wallet
+08-18 12:29:35.029 17763 17763 I flutter : 🌐 [API Request] GET /wallet
+08-18 12:29:35.093 17763 17763 I flutter : [WalletProvider] Raw response: {success: true, message: Wallet fetched, data: {id: ceae9871-bba2-46e3-bf7f-1bff5ede229e, userId: eff6c8a0-21dc-4bc7-9301-5c704e4f5ddd, balance: 976.5001, createdAt: 2026-08-16T03:26:25.367Z, updatedAt: 2026-08-16T08:02:55.687Z, transactions: [{id: 8c405fa3-d56c-4865-9163-fa84fda87822, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 10.8333, balanceBefore: 987.3334, balanceAfter: 976.5001, description: Call deduction for call 61e4a740-1c3d-466a-b080-3e3c26e8145a, refId: 61e4a740-1c3d-466a-b080-3e3c26e8145a, metadata: null, createdAt: 2026-08-16T08:02:55.690Z}, {id: 0785db88-0fdc-4502-b081-a04abb2bfbc9, walletId: ceae9871-bba2-46e3-bf7f-1bff5ede229e, type: CALL_DEDUCTION, amount: 11.3333, balanceBefore: 998.6667, balanceAfter: 987.3334, description: Call deduction for call a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, refId: a49c02bb-ab02-492a-a37b-d0c7fd3eadf6, metadata: null, createdAt: 2026-08-16T07:12:34.647Z}, {id: 0f7e1b3d-ec5d-4c71-a7ff-9078520e4199,
+08-18 12:29:35.094 17763 17763 I flutter : [WalletProvider] Parsed from data.balance: 976.5001 (raw=976.5001, type=double)
+08-18 12:29:35.094 17763 17763 I flutter : [WalletProvider] Balance fetched successfully: 976.5001
+08-18 12:29:35.142 17763 17763 I flutter : ✅ Socket connected
+08-18 12:29:35.441 17763 17763 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:29:35.441 17763 17763 I flutter : 🌐 [API Request] GET /discovery
+08-18 12:29:35.441 17763 17763 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:29:35.442 17763 17763 I flutter : 🌐 [API Request] GET /wallet/transactions
+08-18 12:29:35.442 17763 17763 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:29:35.511 17763 17763 I flutter : ✅ Approved listener detected in MainScreen, redirecting to dashboard
+08-18 12:29:35.614 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:35.618 17763 17763 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 12:29:35.660 17763 17763 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:29:35.664 17763 17763 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:29:35.665 17763 17763 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:29:35.671 17763 17763 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:29:35.717 17763 17763 I flutter : type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:29:35.724 17763 17763 I flutter : #0      _WalletScreenState.build.<anonymous closure> (package:dating_app/features/wallet/presentation/screens/wallet_screen.dart:183)
+08-18 12:29:35.724 17763 17763 I flutter : #1      SliverChildBuilderDelegate.build (package:flutter/src/widgets/scroll_delegate.dart:552)
+08-18 12:29:35.724 17763 17763 I flutter : #2      SliverMultiBoxAdaptorElement._build (package:flutter/src/widgets/sliver.dart:1055)
+08-18 12:29:35.724 17763 17763 I flutter : #3      SliverMultiBoxAdaptorElement.createChild.<anonymous closure> (package:flutter/src/widgets/sliver.dart:1071)
+08-18 12:29:35.724 17763 17763 I flutter : #4      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3101)
+08-18 12:29:35.724 17763 17763 I flutter : #5      SliverMultiBoxAdaptorElement.createChild (package:flutter/src/widgets/sliver.dart:1061)
+08-18 12:29:35.724 17763 17763 I flutter : #6      RenderSliverMultiBoxAdaptor._createOrObtainChild.<anonymous closure> (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:368)
+08-18 12:29:35.724 17763 17763 I flutter : #7      RenderObject.invokeLayoutCallback.<anonymous closure> (package:flutter/src/rendering/object.dart:2887)
+08-18 12:29:35.724 17763 17763 I flutter : #8      PipelineOwner._enableMutationsToDirtySubtrees (package:flutter/src/rendering/object.dart:1223)
+08-18 12:29:35.724 17763 17763 I flutter : #9      RenderObject.invokeLayoutCallback (package:flutter/src/rendering/object.dart:2886)
+08-18 12:29:35.724 17763 17763 I flutter : #10     RenderSliverMultiBoxAdaptor._createOrObtainChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:357)
+08-18 12:29:35.724 17763 17763 I flutter : #11     RenderSliverMultiBoxAdaptor.addInitialChild (package:flutter/src/rendering/sliver_multi_box_adaptor.dart:455)
+08-18 12:29:35.724 17763 17763 I flutter : #12     RenderSliverList.performLayout (package:flutter/src/rendering/sliver_list.dart:79)
+08-18 12:29:35.724 17763 17763 I flutter : #13     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #14     RenderSliverEdgeInsetsPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:133)
+08-18 12:29:35.724 17763 17763 I flutter : #15     RenderSliverPadding.performLayout (package:flutter/src/rendering/sliver_padding.dart:368)
+08-18 12:29:35.724 17763 17763 I flutter : #16     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #17     RenderViewportBase.layoutChildSequence (package:flutter/src/rendering/viewport.dart:673)
+08-18 12:29:35.724 17763 17763 I flutter : #18     RenderViewport._attemptLayout (package:flutter/src/rendering/viewport.dart:1684)
+08-18 12:29:35.724 17763 17763 I flutter : #19     RenderViewport.performLayout (package:flutter/src/rendering/viewport.dart:1575)
+08-18 12:29:35.724 17763 17763 I flutter : #20     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #21     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.724 17763 17763 I flutter : #22     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #23     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.724 17763 17763 I flutter : #24     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #25     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.724 17763 17763 I flutter : #26     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #27     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.724 17763 17763 I flutter : #28     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #29     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.724 17763 17763 I flutter : #30     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.724 17763 17763 I flutter : #31     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #32     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #33     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #34     RenderCustomPaint.performLayout (package:flutter/src/rendering/custom_paint.dart:574)
+08-18 12:29:35.725 17763 17763 I flutter : #35     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #36     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #37     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #38     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #39     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 12:29:35.725 17763 17763 I flutter : #40     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #41     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 12:29:35.725 17763 17763 I flutter : #42     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 12:29:35.725 17763 17763 I flutter : #43     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 12:29:35.725 17763 17763 I flutter : #44     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #45     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:29:35.725 17763 17763 I flutter : #46     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #47     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 12:29:35.725 17763 17763 I flutter : #48     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #49     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 12:29:35.725 17763 17763 I flutter : #50     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 12:29:35.725 17763 17763 I flutter : #51     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 12:29:35.725 17763 17763 I flutter : #52     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 12:29:35.725 17763 17763 I flutter : #53     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #54     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #55     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #56     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #57     _RenderCustomClip.performLayout (package:flutter/src/rendering/proxy_box.dart:1549)
+08-18 12:29:35.725 17763 17763 I flutter : #58     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #59     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:29:35.725 17763 17763 I flutter : #60     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #61     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #62     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #63     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #64     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #65     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #66     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #67     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #68     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #69     ChildLayoutHelper.layoutChild (package:flutter/src/rendering/layout_helper.dart:62)
+08-18 12:29:35.725 17763 17763 I flutter : #70     RenderStack._computeSize (package:flutter/src/rendering/stack.dart:645)
+08-18 12:29:35.725 17763 17763 I flutter : #71     RenderStack.performLayout (package:flutter/src/rendering/stack.dart:680)
+08-18 12:29:35.725 17763 17763 I flutter : #72     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #73     RenderPadding.performLayout (package:flutter/src/rendering/shifted_box.dart:262)
+08-18 12:29:35.725 17763 17763 I flutter : #74     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #75     RenderProxyBoxMixin.performLayout (package:flutter/src/rendering/proxy_box.dart:118)
+08-18 12:29:35.725 17763 17763 I flutter : #76     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.725 17763 17763 I flutter : #77     _RenderLayoutBuilder.performLayout (package:flutter/src/widgets/layout_builder.dart:449)
+08-18 12:29:35.725 17763 17763 I flutter : #78     RenderObject.layout (package:flutter/src/rendering/object.dart:2768)
+08-18 12:29:35.726 17763 17763 I flutter : #79     MultiChildLayoutDelegate.layoutChild (package:flutter/src/rendering/custom_layout.dart:180)
+08-18 12:29:35.726 17763 17763 I flutter : #80     _ScaffoldLayout.performLayout (package:flutter/src/material/scaffold.dart:1113)
+08-18 12:29:35.726 17763 17763 I flutter : #81     MultiChildLayoutDelegate._callPerformLayout (package:flutter/src/rendering/custom_layout.dart:246)
+08-18 12:29:35.726 17763 17763 I flutter : #82     RenderCustomMultiChildLayoutBox.performLayout (package:flutter/src/rendering/custom_layout.dart:417)
+08-18 12:29:35.726 17763 17763 I flutter : #83     RenderObject._layoutWithoutResize (package:flutter/src/rendering/object.dart:2616)
+08-18 12:29:35.726 17763 17763 I flutter : #84     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1174)
+08-18 12:29:35.726 17763 17763 I flutter : #85     PipelineOwner.flushLayout (package:flutter/src/rendering/object.dart:1187)
+08-18 12:29:35.726 17763 17763 I flutter : #86     RendererBinding.drawFrame (package:flutter/src/rendering/binding.dart:629)
+08-18 12:29:35.726 17763 17763 I flutter : #87     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1304)
+08-18 12:29:35.726 17763 17763 I flutter : #88     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495)
+08-18 12:29:35.726 17763 17763 I flutter : #89     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430)
+08-18 12:29:35.726 17763 17763 I flutter : #90     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345)
+08-18 12:29:35.726 17763 17763 I flutter : #91     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198)
+08-18 12:29:35.726 17763 17763 I flutter : #92     _invoke (dart:ui/hooks.dart:356)
+08-18 12:29:35.726 17763 17763 I flutter : #93     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:444)
+08-18 12:29:35.726 17763 17763 I flutter : #94     _drawFrame (dart:ui/hooks.dart:328)
+08-18 12:29:35.819 17763 17763 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:29:35.834 17763 17763 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:29:35.841 17763 17763 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:29:36.138 17763 17763 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:29:38.259 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:29:38.259 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:29:38.259 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for ONLINE
+08-18 12:29:38.260 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:29:38.307 17763 17763 I flutter : ✅ [Toggle] Status changed to true
+08-18 12:29:38.808 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:29:42.124 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:42.128 17763 17763 I flutter : ⏸️ [Earnings] Already loading, skipping...
+08-18 12:29:42.150 17763 17763 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:29:42.150 17763 17763 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:29:42.231 17763 17763 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:29:42.233 17763 17763 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:29:42.270 17763 17763 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:29:43.418 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:29:43.418 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:29:43.419 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for ONLINE
+08-18 12:29:43.425 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:29:43.575 17763 17763 I flutter : ✅ [Toggle] Status changed to true
+08-18 12:29:44.076 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:29:46.797 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:48.835 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:29:49.359 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:49.892 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:57.562 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:29:58.726 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:58.727 17763 17763 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:29:58.780 17763 17763 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:59.884 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:59.907 17763 17763 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:29:59.921 17763 17763 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:29:59.949 17763 17763 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:30:00.338 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:30:00.938 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:30:00.938 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:30:00.938 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for OFFLINE
+08-18 12:30:00.939 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:30:01.068 17763 17763 I flutter : ✅ [Toggle] Status changed to false
+08-18 12:30:01.570 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:30:06.165 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:30:06.513 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:30:06.513 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:30:06.513 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for ONLINE
+08-18 12:30:06.514 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:30:06.743 17763 17763 I flutter : ✅ [Toggle] Status changed to true
+08-18 12:30:07.245 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:30:07.810 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:30:07.811 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:30:07.811 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for OFFLINE
+08-18 12:30:07.817 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:30:07.867 17763 17763 I flutter : ✅ [Toggle] Status changed to false
+08-18 12:30:08.369 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:30:11.055 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:30:11.056 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:30:11.056 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for ONLINE
+08-18 12:30:11.063 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:30:11.448 17763 17763 I flutter : ✅ [Toggle] Status changed to true
+08-18 12:30:11.554 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: true
+08-18 12:30:11.554 17763 17763 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:30:11.949 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:30:14.398 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:30:15.522 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:30:16.281 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:30:46.683 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:30:46.685 17763 17763 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:30:46.775 17763 17763 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:31:21.086 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(0) false io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:31:21.116 17763 17763 I SurfaceView@9edacf7: windowStopped(false) true io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:31:21.122 17763 17763 I SurfaceView@9edacf7: surfaceCreated 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:31:21.151 17763 17763 I SurfaceView@9edacf7: surfaceChanged (1080,2408) 1 #1 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2408}
+08-18 12:31:21.225 17763 17763 I SurfaceView@9edacf7: surfaceChanged (1080,2273) 1 #5 io.flutter.embedding.android.x{9edacf7 V.E...... ......ID 0,0-1080,2273}
+08-18 12:31:22.000 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:22.007 17763 17763 I flutter : ⚠️ Session refresh failed on app resume
+08-18 12:31:23.065 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:24.113 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:24.279 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:31:24.279 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:31:24.280 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for OFFLINE
+08-18 12:31:24.287 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:31:24.384 17763 17763 I flutter : ✅ [Toggle] Status changed to false
+08-18 12:31:24.644 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: true
+08-18 12:31:24.644 17763 17763 I flutter : ⏸️ [Toggle] Already toggling status, ignoring...
+08-18 12:31:24.887 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:31:26.044 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:28.290 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:28.839 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:31:28.987 17763 17763 I flutter : 🔵 [Toggle] Called - current _isTogglingStatus: false
+08-18 12:31:28.987 17763 17763 I flutter : 🟢 [Toggle] Lock acquired, proceeding with status change
+08-18 12:31:28.988 17763 17763 I flutter : 📡 [Toggle] Sending PATCH request for ONLINE
+08-18 12:31:28.995 17763 17763 I flutter : 🌐 [API Request] PATCH /listeners/status
+08-18 12:31:29.078 17763 17763 I flutter : ✅ [Toggle] Status changed to true
+08-18 12:31:29.580 17763 17763 I flutter : 🔓 [Toggle] Lock released
+08-18 12:31:29.687 17763 17763 I flutter : ⏸️ [Dashboard] Already loading, skipping...
+08-18 12:32:03.917 17763 17763 I SurfaceView@9edacf7: onWindowVisibilityChanged(8) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:32:03.919 17763 17763 I SurfaceView@9edacf7: surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273}
+08-18 12:32:04.038 17763 17763 I SurfaceView@9edacf7: windowStopped(true) false io.flutter.embedding.android.x{9edacf7 V.E...... ........ 0,0-1080,2273} of ViewRootImpl@f0a9583[MainActivity]
+08-18 12:39:35.405 19830 19865 D nativeloader: Load /data/app/~~IMDreJcyYK4FezkVtmyVTw==/com.milan.datingapp.dating_app-dLWNzO1EpF_gT7cjh-G9dQ==/base.apk!/lib/armeabi-v7a/libflutter.so using class loader ns clns-5 (caller=/data/app/~~IMDreJcyYK4FezkVtmyVTw==/com.milan.datingapp.dating_app-dLWNzO1EpF_gT7cjh-G9dQ==/base.apk): ok
+08-18 12:39:35.522 19830 19868 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+08-18 12:39:35.676 19830 19830 I SurfaceView@9a294c6: onWindowVisibilityChanged(0) true io.flutter.embedding.android.x{9a294c6 V.E...... ......I. 0,0-0,0} of ViewRootImpl@1c41902[MainActivity]
+08-18 12:39:35.697 19830 19830 I SurfaceView@9a294c6: windowStopped(false) true io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273} of ViewRootImpl@1c41902[MainActivity]
+08-18 12:39:35.707 19830 19830 I SurfaceView@9a294c6: surfaceCreated 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 12:39:35.792 19830 19830 I SurfaceView@9a294c6: surfaceChanged (1080,2273) 1 #8 io.flutter.embedding.android.x{9a294c6 V.E...... ......ID 0,0-1080,2273}
+08-18 12:39:35.915 19830 19830 I flutter : ✅ Session manager initialized - periodic refresh enabled
+08-18 12:39:35.947 19830 19830 D PhoneWindow: forceLight changed to false [com.milan.datingapp.dating_app/com.milan.datingapp.dating_app.MainActivity] from com.android.internal.policy.PhoneWindow.updateForceLightNavigationBar:4373 com.android.internal.policy.PhoneWindow.setNavigationBarColor:4064 io.flutter.plugin.platform.f.a:145 A0.f.o:501 A0.f.onMethodCall:934 
+08-18 12:39:37.936 19830 19830 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:39:38.014 19830 19830 I flutter : 🎧 Listener status: APPROVED
+08-18 12:39:38.015 19830 19830 I flutter : ✅ Redirecting approved listener to dashboard
+08-18 12:39:38.027 19830 19830 I flutter : ✅ Socket connected
+08-18 12:39:38.060 19830 19830 I flutter : 🌐 [API Request] GET /earnings/summary
+08-18 12:39:38.060 19830 19830 I flutter : 🌐 [API Request] GET /calls/history
+08-18 12:39:38.061 19830 19830 I flutter : 🌐 [API Request] GET /earnings/summary
+08-18 12:39:38.062 19830 19830 I flutter : 🌐 [API Request] GET /earnings/history
+08-18 12:39:38.062 19830 19830 I flutter : 🌐 [API Request] GET /users/me
+08-18 12:39:38.386 19830 19830 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:39:38.389 19830 19830 I flutter : ❌ Failed to load user profile: type 'String' is not a subtype of type 'num?' in type cast
+08-18 12:39:38.390 19830 19830 I flutter : 🌐 [API Request] GET /listeners/me
+08-18 12:39:38.450 19830 19830 I flutter : ✅ Listener data loaded: APPROVED
+08-18 12:39:40.157 19830 19830 I flutter : ⏸️ [Dashboard] Skipping refresh - last refresh was 1s ago
+08-18 12:39:45.964 19830 19830 I flutter : ⏸️ [Earnings] Skipping refresh - last refresh was 7s ago
+08-18 12:39:47.861 19830 19830 I flutter : ⏸️ [Dashboard] Skipping refresh - last refresh was 9s ago
+08-18 12:39:48.643 19830 19830 I flutter : ⏸️ [Dashboard] Skipping refresh - last refresh was 10s ago
+08-18 12:39:50.074 19830 19830 I flutter : ⏸️ [Dashboard] Skipping refresh - last refresh was 11s ago

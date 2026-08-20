@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/network/api_client.dart';
 import '../../../../core/network/api_endpoints.dart';
 import '../../../../core/providers/wallet_provider.dart';
 import '../../../../core/storage/secure_storage.dart';
-import '../../../../core/socket/socket_service.dart';
 import '../../../../core/services/session_manager.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../shared/widgets/coin_badge.dart';
-import '../../../../shared/widgets/app_card.dart';
-import '../../../../shared/widgets/gradient_scaffold.dart';
+import '../../../../shared/widgets/milan_coin.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -26,58 +24,69 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     _load();
-    // Balance is displayed from cached provider value and updated via socket
-    // Removed: walletProvider.fetchBalance() — reduces unnecessary API calls
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  void _onWalletUpdate() {
-    if (mounted) setState(() {});
   }
 
   Future<void> _load() async {
     try {
       final resp = await api.get(ApiEndpoints.me);
       final data = resp.data['data'];
-      setState(() { _user = data; });
-      // Update wallet provider with the fetched balance
+      if (mounted) setState(() => _user = data);
       final balance = (data['wallet']?['balance'] as num?)?.toDouble() ?? 0;
       walletProvider.updateBalance(balance);
     } catch (e) {
-      debugPrint('❌ Failed to load user profile: $e');
+      debugPrint('Profile load error: $e');
     }
     try {
       final lResp = await api.get(ApiEndpoints.listenerMe);
       if (lResp.statusCode == 200 && lResp.data['data'] != null) {
-        debugPrint('✅ Listener data loaded: ${lResp.data['data']['status']}');
-        setState(() => _listenerData = lResp.data['data']);
+        if (mounted) setState(() => _listenerData = lResp.data['data']);
       } else {
-        debugPrint('⚠️ Listener API returned non-200 or null data');
-        setState(() => _listenerData = null);
+        if (mounted) setState(() => _listenerData = null);
       }
-    } catch (e) {
-      debugPrint('ℹ️ Not a listener (expected for regular users): $e');
-      setState(() => _listenerData = null);
+    } catch (_) {
+      if (mounted) setState(() => _listenerData = null);
     }
-    setState(() => _loading = false);
+    if (mounted) setState(() => _loading = false);
   }
 
   Future<void> _logout() async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (_) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Text('Logout', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+        content: Text('Are you sure you want to logout?',
+            style: GoogleFonts.poppins(color: AppColors.textSecondary)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text('Cancel',
+                style: GoogleFonts.poppins(color: AppColors.textSecondary)),
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 8, bottom: 4),
+            decoration: BoxDecoration(
+              gradient: AppColors.pinkPurpleGradient,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text('Logout',
+                  style: GoogleFonts.poppins(
+                      color: Colors.white, fontWeight: FontWeight.w600)),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (confirm != true) return;
+
     try {
       final refresh = await SecureStorage.getRefreshToken();
       await api.post(ApiEndpoints.authLogout, data: {'refreshToken': refresh});
     } catch (_) {}
-
-    // Clear session using session manager
     await sessionManager.clearSession();
-
-    // Reset wallet provider
     walletProvider.reset();
-
     if (mounted) context.go('/auth/login');
   }
 
@@ -87,96 +96,376 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GradientScaffold(
-      body: _loading
-          ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
-          : SingleChildScrollView(
-              padding: const EdgeInsets.all(20),
-              child: Column(children: [
-                // Header card
-                AppCard(
-                  child: Row(children: [
-                    Stack(children: [
-                      CircleAvatar(
-                        radius: 34, backgroundColor: AppColors.bgGradientBottom,
-                        backgroundImage: _user?['profile']?['photoUrl'] != null ? NetworkImage(_user!['profile']['photoUrl']) : null,
-                        child: _user?['profile']?['photoUrl'] == null ? const Icon(Icons.person, size: 34, color: AppColors.accentStart) : null,
-                      ),
-                      Positioned(bottom: 0, right: 0, child: Container(
-                        width: 20, height: 20,
-                        decoration: BoxDecoration(gradient: AppColors.accentGradient, shape: BoxShape.circle, border: Border.all(color: Colors.white, width: 1.5)),
-                        child: const Icon(Icons.camera_alt, size: 10, color: Colors.white),
-                      )),
-                    ]),
-                    const SizedBox(width: 14),
-                    Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text(_user?['name'] ?? 'User', style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: AppColors.textPrimary)),
-                      Text(_user?['phone'] ?? _user?['email'] ?? '', style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
-                      if (_hasApplied) ...[const SizedBox(height: 4), _statusBadge()],
-                    ])),
-                    ListenableBuilder(
-                      listenable: walletProvider,
-                      builder: (context, child) {
-                        return CoinBadge(balance: walletProvider.balance, onTap: () => context.push('/recharge'));
-                      },
-                    ),
-                  ]),
-                ),
-                const SizedBox(height: 16),
-                AppCard(
-                  padding: EdgeInsets.zero,
+    return Container(
+      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
+      child: SafeArea(
+        child: _loading
+            ? const Center(
+                child: CircularProgressIndicator(color: AppColors.primary))
+            : RefreshIndicator(
+                onRefresh: _load,
+                color: AppColors.primary,
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 100),
                   child: Column(children: [
-                    _tile(Icons.account_balance_wallet_outlined, 'Wallet & Transactions', () => context.push('/wallet'), color: AppColors.primary),
-                    _divider(),
-                    _tile(Icons.add_circle_outline, 'Buy Coins', () => context.push('/recharge'), color: AppColors.gold),
-                    if (!_hasApplied) ...[_divider(), _tile(Icons.headset_mic_outlined, 'Become a Listener', () => context.push('/listener/register'), color: AppColors.accentStart)],
-                    if (_hasApplied && !_isApproved) ...[_divider(), _tile(Icons.hourglass_top_outlined, 'Application: $_listenerStatus', () {}, color: AppColors.busy)],
-                    if (_isApproved) ...[_divider(), _tile(Icons.dashboard_outlined, 'Listener Dashboard', () => context.push('/listener/dashboard'), color: AppColors.accentStart)],
+                    _buildProfileCard(),
+                    const SizedBox(height: 20),
+                    _buildWalletSection(),
+                    const SizedBox(height: 14),
+                    if (!_hasApplied || !_isApproved) ...[
+                      _buildListenerSection(),
+                      const SizedBox(height: 14),
+                    ],
+                    _buildSupportSection(),
+                    const SizedBox(height: 14),
+                    _buildLogoutBtn(),
                   ]),
                 ),
-                const SizedBox(height: 12),
-                AppCard(
-                  padding: EdgeInsets.zero,
-                  child: Column(children: [
-                    _tile(Icons.settings_outlined, 'Account Settings', () => context.push('/settings/account')),
-                    _divider(),
-                    _tile(Icons.notifications_outlined, 'Notifications', () {}),
-                    _divider(),
-                    _tile(Icons.help_outline, 'Help & Support', () {}),
-                    _divider(),
-                    _tile(Icons.description_outlined, 'Terms & Conditions', () {}),
-                  ]),
-                ),
-                const SizedBox(height: 12),
-                AppCard(
-                  padding: EdgeInsets.zero,
-                  child: _tile(Icons.logout, 'Logout', _logout, color: AppColors.error),
-                ),
-                const SizedBox(height: 24),
-              ]),
-            ),
+              ),
+      ),
     );
   }
 
-  Widget _divider() => const Divider(height: 0, indent: 54, color: AppColors.divider);
+  // ── Profile Header Card ───────────────────────────────────────────────────
 
-  Widget _statusBadge() {
-    final colors = {'APPROVED': AppColors.success, 'PENDING': AppColors.busy, 'REJECTED': AppColors.error, 'SUSPENDED': AppColors.error};
-    final labels = {'APPROVED': 'Listener: Active', 'PENDING': 'Listener: Pending Review', 'REJECTED': 'Listener: Rejected', 'SUSPENDED': 'Listener: Suspended'};
-    final color = colors[_listenerStatus] ?? AppColors.textHint;
+  Widget _buildProfileCard() {
+    final name = _user?['name'] as String? ?? 'User';
+    final phone = (_user?['phone'] ?? _user?['email'] ?? '') as String;
+    final photoUrl = _user?['profile']?['photoUrl'] as String?;
+    final initials = name.isNotEmpty ? name[0].toUpperCase() : 'U';
+
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: AppColors.bannerGradient,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(color: AppColors.pink.withValues(alpha: 0.25),
+              blurRadius: 24, offset: const Offset(0, 8)),
+        ],
+      ),
+      child: Stack(children: [
+        // Decorative circle
+        Positioned(top: -20, right: -20,
+          child: Container(width: 80, height: 80,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white.withValues(alpha: 0.06)))),
+
+        Column(children: [
+          Row(children: [
+            // Avatar
+            Container(
+              padding: const EdgeInsets.all(2.5),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.3),
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                radius: 36,
+                backgroundColor: Colors.white.withValues(alpha: 0.2),
+                backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
+                child: photoUrl == null
+                    ? Text(initials,
+                        style: GoogleFonts.poppins(
+                            fontSize: 28, fontWeight: FontWeight.w800,
+                            color: Colors.white))
+                    : null,
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name,
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                    maxLines: 1, overflow: TextOverflow.ellipsis),
+                if (phone.isNotEmpty)
+                  Text(phone,
+                      style: GoogleFonts.poppins(
+                          fontSize: 12, color: Colors.white70)),
+                if (_hasApplied && !_isApproved) ...[
+                  const SizedBox(height: 4),
+                  _listenerBadge(),
+                ],
+              ],
+            )),
+          ]),
+
+          const SizedBox(height: 16),
+          const Divider(color: Colors.white24),
+          const SizedBox(height: 12),
+
+          // Balance row
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const MilanCoin(size: 28, glow: true),
+            const SizedBox(width: 10),
+            ListenableBuilder(
+              listenable: walletProvider,
+              builder: (_, __) => Text(
+                walletProvider.balance.toInt().toString(),
+                style: GoogleFonts.poppins(
+                    fontSize: 32, fontWeight: FontWeight.w800,
+                    color: Colors.white, height: 1),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text('Coins',
+                style: GoogleFonts.poppins(
+                    fontSize: 14, color: Colors.white70,
+                    fontWeight: FontWeight.w500)),
+            const Spacer(),
+            GestureDetector(
+              onTap: () => context.push('/recharge'),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.12),
+                      blurRadius: 8)],
+                ),
+                child: Row(mainAxisSize: MainAxisSize.min, children: [
+                  const Icon(Icons.add, size: 14, color: AppColors.pink),
+                  const SizedBox(width: 4),
+                  Text('Add',
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w700, fontSize: 13,
+                          color: AppColors.textPrimary)),
+                ]),
+              ),
+            ),
+          ]),
+        ]),
+      ]),
+    );
+  }
+
+  // ── Wallet Section ─────────────────────────────────────────────────────────
+
+  Widget _buildWalletSection() {
+    return _SectionCard(
+      title: 'Wallet',
+      items: [
+        _SectionItem(
+          icon: Icons.account_balance_wallet_rounded,
+          label: 'Wallet & Transactions',
+          color: AppColors.primary,
+          onTap: () => context.push('/wallet'),
+        ),
+        _SectionItem(
+          icon: Icons.add_circle_rounded,
+          label: 'Buy Coins',
+          color: AppColors.gold,
+          onTap: () => context.push('/recharge'),
+        ),
+      ],
+    );
+  }
+
+  // ── Listener Section ───────────────────────────────────────────────────────
+
+  Widget _buildListenerSection() {
+    if (!_hasApplied) {
+      return _SectionCard(
+        title: 'Earn with Connecto',
+        items: [
+          _SectionItem(
+            icon: Icons.headset_mic_rounded,
+            label: 'Become a Listener',
+            subtitle: 'Earn money by talking to users',
+            color: AppColors.purple,
+            onTap: () => context.push('/listener/register'),
+          ),
+        ],
+      );
+    }
+    if (!_isApproved) {
+      return _SectionCard(
+        title: 'Listener Application',
+        items: [
+          _SectionItem(
+            icon: Icons.hourglass_top_rounded,
+            label: 'Application Status',
+            subtitle: _listenerStatus,
+            color: AppColors.busy,
+            onTap: () {},
+            showArrow: false,
+          ),
+        ],
+      );
+    }
+    return const SizedBox.shrink();
+  }
+
+  // ── Support & Legal Section ────────────────────────────────────────────────
+
+  Widget _buildSupportSection() {
+    return _SectionCard(
+      title: 'Support & Legal',
+      items: [
+        _SectionItem(
+          icon: Icons.settings_rounded,
+          label: 'Account Settings',
+          color: AppColors.textSecondary,
+          onTap: () => context.push('/settings/account'),
+        ),
+        _SectionItem(
+          icon: Icons.help_rounded,
+          label: 'Help & Support',
+          subtitle: 'Raise a ticket or view past tickets',
+          color: AppColors.blue,
+          onTap: () => context.push('/user/help-support'),
+        ),
+        _SectionItem(
+          icon: Icons.description_rounded,
+          label: 'Terms & Conditions',
+          color: AppColors.purple,
+          onTap: () => context.push('/user/terms'),
+        ),
+      ],
+    );
+  }
+
+  // ── Logout Button ──────────────────────────────────────────────────────────
+
+  Widget _buildLogoutBtn() {
+    return GestureDetector(
+      onTap: _logout,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [BoxShadow(color: AppColors.error.withValues(alpha: 0.08),
+              blurRadius: 12, offset: const Offset(0, 4))],
+          border: Border.all(
+              color: AppColors.error.withValues(alpha: 0.2)),
+        ),
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const Icon(Icons.logout_rounded, color: AppColors.error, size: 18),
+          const SizedBox(width: 8),
+          Text('Logout',
+              style: GoogleFonts.poppins(
+                  color: AppColors.error, fontWeight: FontWeight.w600,
+                  fontSize: 15)),
+        ]),
+      ),
+    );
+  }
+
+  Widget _listenerBadge() {
+    final colors = {
+      'APPROVED': AppColors.success,
+      'PENDING': AppColors.busy,
+      'REJECTED': AppColors.error,
+      'SUSPENDED': AppColors.error,
+    };
+    final labels = {
+      'APPROVED': 'Listener Active',
+      'PENDING': 'Under Review',
+      'REJECTED': 'Application Rejected',
+      'SUSPENDED': 'Account Suspended',
+    };
+    final _ = colors[_listenerStatus] ?? AppColors.textHint; // kept for future use
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(color: color.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(8)),
-      child: Text(labels[_listenerStatus] ?? 'Listener: $_listenerStatus', style: TextStyle(color: color, fontSize: 11, fontWeight: FontWeight.w600)),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.2),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        labels[_listenerStatus] ?? _listenerStatus,
+        style: GoogleFonts.poppins(
+            color: Colors.white, fontSize: 10, fontWeight: FontWeight.w600),
+      ),
     );
   }
+}
 
-  Widget _tile(IconData icon, String title, VoidCallback onTap, {Color? color}) {
+// ── Reusable Section Card ─────────────────────────────────────────────────────
+
+class _SectionCard extends StatelessWidget {
+  final String title;
+  final List<_SectionItem> items;
+  const _SectionCard({required this.title, required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(
+        padding: const EdgeInsets.only(left: 4, bottom: 8),
+        child: Text(title,
+            style: GoogleFonts.poppins(
+                fontSize: 12, fontWeight: FontWeight.w600,
+                color: AppColors.textHint,
+                letterSpacing: 0.5)),
+      ),
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10, offset: const Offset(0, 2))],
+        ),
+        child: Column(children: List.generate(items.length, (i) {
+          return Column(children: [
+            items[i]._build(context),
+            if (i < items.length - 1)
+              const Divider(height: 0, indent: 60, color: AppColors.divider),
+          ]);
+        })),
+      ),
+    ]);
+  }
+}
+
+class _SectionItem {
+  final IconData icon;
+  final String label;
+  final String? subtitle;
+  final Color color;
+  final VoidCallback onTap;
+  final bool showArrow;
+
+  const _SectionItem({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+    this.subtitle,
+    this.showArrow = true,
+  });
+
+  Widget _build(BuildContext context) {
     return ListTile(
-      leading: Container(width: 34, height: 34, decoration: BoxDecoration(color: (color ?? AppColors.textSecondary).withValues(alpha: 0.1), borderRadius: BorderRadius.circular(10)),
-          child: Icon(icon, color: color ?? AppColors.textSecondary, size: 18)),
-      title: Text(title, style: TextStyle(color: color == AppColors.error ? AppColors.error : AppColors.textPrimary, fontWeight: FontWeight.w500, fontSize: 14)),
-      trailing: color == AppColors.error ? null : const Icon(Icons.chevron_right, color: AppColors.textHint, size: 18),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+      leading: Container(
+        width: 38, height: 38,
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(icon, color: color, size: 19),
+      ),
+      title: Text(label,
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600, fontSize: 14,
+              color: AppColors.textPrimary)),
+      subtitle: subtitle != null
+          ? Text(subtitle!,
+              style: GoogleFonts.poppins(
+                  fontSize: 11, color: AppColors.textHint))
+          : null,
+      trailing: showArrow
+          ? const Icon(Icons.chevron_right_rounded,
+              color: AppColors.textHint, size: 20)
+          : null,
       onTap: onTap,
     );
   }

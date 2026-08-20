@@ -7,7 +7,7 @@ import { connectRedis } from './config/redis';
 import { setupSockets } from './sockets';
 import { setIO } from './sockets/registry';
 import { logger } from './utils/logger';
-import { cleanupExpiredRingingCalls } from './modules/calls/calls.service';
+import { cleanupExpiredRingingCalls, watchdogActiveCalls, resetStaleListenerStatuses } from './modules/calls/calls.service';
 
 const server = http.createServer(app);
 
@@ -22,6 +22,8 @@ setupSockets(io);
 
 // Periodic cleanup of expired ringing calls (every 30 seconds)
 let cleanupInterval: NodeJS.Timeout;
+// Watchdog for orphaned IN_PROGRESS calls (participant heartbeat timeout)
+let watchdogInterval: NodeJS.Timeout;
 
 const start = async (): Promise<void> => {
   try {
@@ -35,19 +37,32 @@ const start = async (): Promise<void> => {
       logger.info(`Server running on port ${config.port} [${config.env}]`);
     });
 
-    // Start cleanup interval for missed calls
+    // Heal listeners stuck BUSY from previous crash / restart BEFORE accepting traffic
+    await resetStaleListenerStatuses();
+
+    // Cleanup missed/expired ringing calls every 30s
     cleanupInterval = setInterval(() => {
       cleanupExpiredRingingCalls().catch(err => logger.error('Cleanup job failed', err));
-    }, 30000); // Every 30 seconds
+    }, 30000);
+
+    // Watchdog: terminate IN_PROGRESS calls whose participant heartbeat has timed out.
+    // This is the billing-safety mechanism that fires when a participant force-kills their app.
+    watchdogInterval = setInterval(() => {
+      watchdogActiveCalls().catch(err => logger.error('[CALL_WATCHDOG] Watchdog job failed', err));
+    }, config.call.watchdogIntervalMs);
+
+    logger.info(`[CALL_WATCHDOG] Started — participantTimeout=${config.call.participantTimeoutMs}ms interval=${config.call.watchdogIntervalMs}ms`);
   } catch (err) {
     logger.error('Failed to start server', err);
     process.exit(1);
   }
 };
 
+
 process.on('SIGTERM', async () => {
   logger.info('SIGTERM: shutting down gracefully');
   clearInterval(cleanupInterval);
+  clearInterval(watchdogInterval);
   const shutdownTimeout = setTimeout(() => process.exit(1), 10000);
   server.close(async () => {
     clearTimeout(shutdownTimeout);
@@ -59,6 +74,7 @@ process.on('SIGTERM', async () => {
 process.on('SIGINT', async () => {
   logger.info('SIGINT: shutting down gracefully');
   clearInterval(cleanupInterval);
+  clearInterval(watchdogInterval);
   const shutdownTimeout = setTimeout(() => process.exit(1), 10000);
   server.close(async () => {
     clearTimeout(shutdownTimeout);

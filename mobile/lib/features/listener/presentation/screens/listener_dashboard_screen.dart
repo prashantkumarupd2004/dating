@@ -32,66 +32,163 @@ int _toInt(dynamic v) {
 }
 
 
-class _ListenerDashboardScreenState extends State<ListenerDashboardScreen> {
+class _ListenerDashboardScreenState extends State<ListenerDashboardScreen>
+    with WidgetsBindingObserver {
   Map<String, dynamic>? _summary;
-  bool _loading = true;
+  bool _loading = false;
   bool _isOnline = false;
   String? _listenerId;
-  String? _incomingCallId;
-  bool _dialogShowing = false;
-  DateTime? _lastRefresh; // Track last refresh time
+
+  // ── Presence heartbeat ─────────────────────────────────────────────────
+  /// Keeps the Redis presence key alive while the listener is ONLINE.
+  /// Backend TTL is 35s; we send a heartbeat every 25s to stay ahead.
+  Timer? _presenceHeartbeatTimer;
+
+  static const _presenceHeartbeatInterval = Duration(seconds: 25);
+
+  // ── Incoming-call state ────────────────────────────────────────────────────
+  /// The callId currently shown in the incoming-call dialog (null = no dialog).
+  String? _activeIncomingCallId;
+
+  /// Set of callIds we have already processed; prevents duplicate dialogs when
+  /// both a socket event AND an FCM message arrive for the same call.
+  final Set<String> _processedCallIds = {};
+
+  bool _isTogglingStatus = false;
+  DateTime? _lastRefresh;
+
+  // ── Stored handler references — needed for precise removeListener() ────────
+  late final Function(dynamic) _onIncomingCall;
+  late final Function(dynamic) _onCallEnded;
+  late final Function(dynamic) _onCallCancelled;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
+    // Store handler references so we can remove exactly these later.
+    _onIncomingCall  = _handleIncomingCall;
+    _onCallEnded     = _handleCallEnded;
+    _onCallCancelled = _handleCallCancelled;
+
+    // Register listeners once. SocketService stores them and replays on
+    // reconnect automatically, so there is no risk of duplicates.
+    socketService.addListener('call:incoming',  _onIncomingCall);
+    socketService.addListener('call:ended',     _onCallEnded);
+    socketService.addListener('call:cancelled', _onCallCancelled);
+
     _load();
-    socketService.on('call:incoming', _handleIncomingCall);
-    socketService.on('call:ended', _handleCallEnded);
   }
 
-  Future<void> _load() async {
-    // Prevent rapid refresh - only allow refresh every 30 seconds
-    if (_lastRefresh != null) {
-      final timeSinceLastRefresh = DateTime.now().difference(_lastRefresh!);
-      if (timeSinceLastRefresh.inSeconds < 30) {
-        debugPrint('⏸️ [Dashboard] Skipping refresh - last refresh was ${timeSinceLastRefresh.inSeconds}s ago');
-        return;
-      }
+  /// When the app returns to foreground while the listener is ONLINE,
+  /// immediately re-announce presence so the Redis key is refreshed and
+  /// the online status indicator doesn't flicker offline.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed && _isOnline && _listenerId != null) {
+      debugPrint('[PRESENCE] App resumed — re-announcing presence for $_listenerId');
+      socketService.goOnline(_listenerId!);
     }
+  }
 
-    // Prevent concurrent requests
+  // ── Data loading ───────────────────────────────────────────────────────────
+
+  Future<void> _load() async {
     if (_loading) {
       debugPrint('⏸️ [Dashboard] Already loading, skipping...');
       return;
     }
 
+    // Prevent rapid refresh — only allow every 30 s after first success.
+    if (_lastRefresh != null && _summary != null) {
+      final ago = DateTime.now().difference(_lastRefresh!);
+      if (ago.inSeconds < 30) {
+        debugPrint('⏸️ [Dashboard] Skipping refresh — last was ${ago.inSeconds}s ago');
+        return;
+      }
+    }
+
+    if (!mounted) return;
     setState(() => _loading = true);
-    _lastRefresh = DateTime.now();
 
     try {
-      final resp = await api.get(ApiEndpoints.earningsSummary);
-      setState(() { _summary = resp.data['data']; });
+      // Earnings summary
+      try {
+        final resp = await api.get(ApiEndpoints.earningsSummary);
+        if (mounted) setState(() { _summary = resp.data['data']; });
+      } catch (e) {
+        debugPrint('Earnings API error: $e');
+      }
+
+      // Listener profile
+      try {
+        final resp = await api.get(ApiEndpoints.listenerMe);
+        final listenerData = resp.data['data'];
+        final status = listenerData['onlineStatus'] as String? ?? 'OFFLINE';
+        _listenerId = listenerData['id'] as String?;
+        if (mounted) setState(() => _isOnline = status == 'ONLINE');
+
+        // Ensure socket is connected and presence is announced.
+        if (_isOnline && _listenerId != null) {
+          await socketService.goOnline(_listenerId!);
+          // Also start the presence heartbeat if not already running.
+          // This handles the case where the app was killed and reopened
+          // while the listener was ONLINE.
+          _startPresenceHeartbeat();
+        }
+      } catch (e) {
+        debugPrint('Listener Me API error: $e');
+        if (e.toString().contains('404') && mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Please complete listener registration first'),
+              backgroundColor: AppColors.error,
+            ),
+          );
+          context.go('/listener/register');
+          return;
+        }
+      }
+
+      _lastRefresh = DateTime.now();
     } catch (e) {
-      debugPrint('Earnings API error: $e');
+      debugPrint('❌ Dashboard load error: $e');
+    } finally {
+      if (mounted) setState(() => _loading = false);
     }
-    try {
-      final resp = await api.get(ApiEndpoints.listenerMe);
-      final listenerData = resp.data['data'];
-      final status = listenerData['onlineStatus'] as String? ?? 'OFFLINE';
-      _listenerId = listenerData['id'] as String?;
-      setState(() => _isOnline = status == 'ONLINE');
-      if (_isOnline && _listenerId != null) socketService.goOnline(_listenerId!);
-    } catch (e) {
-      debugPrint('Listener Me API error: $e');
-    }
-    setState(() => _loading = false);
   }
 
+  // ── Incoming-call handlers ─────────────────────────────────────────────────
+
   void _handleIncomingCall(dynamic data) {
-    _incomingCallId = data['callId'] as String?;
-    _dialogShowing = true;
+    final callId = data['callId'] as String?;
+    if (callId == null) return;
+
+    // Atomic deduplication: if already processing this callId, bail out.
+    if (_processedCallIds.contains(callId)) {
+      debugPrint('🔁 [Dashboard] Duplicate call:incoming for $callId — ignored');
+      return;
+    }
+    // If a dialog is already showing for any call, ignore new events
+    // (prevents stacking dialogs if the backend fires multiple events).
+    if (_activeIncomingCallId != null) {
+      debugPrint('🔁 [Dashboard] Already showing incoming call — ignored new $callId');
+      return;
+    }
+
+    _processedCallIds.add(callId);
+    _activeIncomingCallId = callId;
+
+    debugPrint('📞 [Dashboard] Showing incoming call dialog for $callId');
     RingtoneService.playIncoming();
-    showGeneralDialog(
+
+    // IMPORTANT: We pass the dialog's own BuildContext (ctx) into the callbacks
+    // so that Navigator.pop(ctx, result) closes *this* dialog — NOT the app.
+    // We must never call context.push() while the dialog is still open, because
+    // GoRouter + Navigator operating on the stack at the same time causes a crash.
+    showGeneralDialog<Map<String, dynamic>>(
       context: context,
       barrierDismissible: false,
       barrierColor: Colors.black87,
@@ -105,61 +202,195 @@ class _ListenerDashboardScreenState extends State<ListenerDashboardScreen> {
       },
       pageBuilder: (ctx, _, __) => IncomingCallScreen(
         callerName: data['callerName'] as String? ?? 'Unknown Caller',
-        callType: data['callType'] as String? ?? 'AUDIO',
+        callType:   data['callType']   as String? ?? 'AUDIO',
         callerPhoto: data['callerPhoto'] as String?,
-        onAccept: () => _acceptCall(data),
+        onAccept: () {
+          // Close dialog with a sentinel value so .then() knows to accept.
+          RingtoneService.stop();
+          Navigator.of(ctx, rootNavigator: true).pop({'action': 'accept'});
+        },
         onDecline: () {
-          _dismissIncomingDialog();
-          api.post(ApiEndpoints.rejectCall(data['callId']));
+          // Close dialog with a sentinel so .then() knows to reject.
+          RingtoneService.stop();
+          Navigator.of(ctx, rootNavigator: true).pop({'action': 'decline'});
         },
       ),
-    ).then((_) { _dialogShowing = false; });
-  }
+    ).then((result) async {
+      // Dialog is FULLY closed here — safe to navigate.
+      if (_activeIncomingCallId == callId) _activeIncomingCallId = null;
 
-  void _dismissIncomingDialog() {
-    RingtoneService.stop(); // stop ring on accept, decline, or remote cancel
-    if (_dialogShowing && mounted) Navigator.pop(context);
-    _dialogShowing = false;
-    _incomingCallId = null;
+      if (result == null) return; // tapped barrier or dismissed
+
+      if (result['action'] == 'decline') {
+        // Fire-and-forget reject API.
+        Future(() async {
+          try { await api.post(ApiEndpoints.rejectCall(callId)); } catch (_) {}
+        });
+        return;
+      }
+
+      if (result['action'] == 'accept') {
+        await _acceptCall(data);
+      }
+    });
   }
 
   void _handleCallEnded(dynamic data) {
-    if (_dialogShowing && data['callId'] == _incomingCallId) _dismissIncomingDialog();
+    final callId = data['callId'] as String?;
+    debugPrint('📴 [Dashboard] call:ended received for $callId (active: $_activeIncomingCallId)');
+    if (callId != null && callId == _activeIncomingCallId) {
+      _dismissIncomingDialog();
+    }
   }
+
+  void _handleCallCancelled(dynamic data) {
+    final callId = data['callId'] as String?;
+    debugPrint('❌ [Dashboard] call:cancelled received for $callId (active: $_activeIncomingCallId)');
+    if (callId != null && callId == _activeIncomingCallId) {
+      _dismissIncomingDialog();
+    }
+  }
+
+  void _dismissIncomingDialog() {
+    RingtoneService.stop();
+    if (_activeIncomingCallId != null && mounted) {
+      debugPrint('🔕 [Dashboard] Dismissing incoming call dialog');
+      try {
+        // Pop with null result — .then() handler will see null and skip navigation.
+        Navigator.of(context, rootNavigator: true).pop(null);
+      } catch (_) {
+        // Dialog may already be gone — safe to ignore.
+      }
+    }
+    _activeIncomingCallId = null;
+  }
+
+  // ── Accept call ────────────────────────────────────────────────────────────
+  // Called from showGeneralDialog .then() — dialog is already closed at this point,
+  // so context.push() is safe (no Navigator stack conflict).
 
   Future<void> _acceptCall(dynamic data) async {
-    _dismissIncomingDialog();
+    final callId = data['callId'] as String? ?? '';
     try {
-      final resp = await api.post(ApiEndpoints.acceptCall(data['callId']));
-      final call = resp.data['data'];
+      final resp = await api.post(ApiEndpoints.acceptCall(callId));
       if (!mounted) return;
-      context.push(call['type'] == 'VIDEO' ? '/call/video' : '/call/audio', extra: {
-        'mode': 'listener', 'callId': call['id'], 'channelId': call['channelId'],
-        'agoraToken': call['agoraToken'], 'agoraAppId': call['agoraAppId'],
-        'uid': call['listenerUid'], 'listenerName': data['callerName'] ?? 'Someone',
-      });
+
+      final call = resp.data['data'] as Map<String, dynamic>? ?? {};
+
+      // Validate required Agora fields before navigating.
+      final channelId  = call['channelId']  as String?;
+      final agoraToken = call['agoraToken'] as String?;
+      final agoraAppId = call['agoraAppId'] as String?;
+      // uid may come as int, double, or String from backend — normalise safely.
+      final uid        = _toInt(call['listenerUid']);
+      final callRouteId = call['id'] as String? ?? callId;
+
+      if (channelId == null || agoraToken == null || agoraAppId == null) {
+        debugPrint('❌ [_acceptCall] Missing Agora fields: $call');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Call setup failed — missing Agora config')),
+          );
+        }
+        return;
+      }
+
+      context.push(
+        call['type'] == 'VIDEO' ? '/call/video' : '/call/audio',
+        extra: {
+          'mode':         'listener',
+          'callId':       callRouteId,
+          'channelId':    channelId,
+          'agoraToken':   agoraToken,
+          'agoraAppId':   agoraAppId,
+          'uid':          uid,
+          'listenerName': data['callerName'] ?? 'Someone',
+        },
+      );
     } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Could not accept: ${e.toString()}'), backgroundColor: AppColors.error));
+      debugPrint('❌ [_acceptCall] Error: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Could not accept call: $e'), backgroundColor: AppColors.error),
+        );
+      }
     }
   }
+
+  // ── Toggle online/offline ──────────────────────────────────────────────────
 
   Future<void> _toggleOnline() async {
+    debugPrint('🔵 [Toggle] Called - isToggling: $_isTogglingStatus');
+    if (_isTogglingStatus) return;
+
+    setState(() => _isTogglingStatus = true);
     final newStatus = _isOnline ? 'OFFLINE' : 'ONLINE';
+
     try {
       await api.patch(ApiEndpoints.listenerStatus, data: {'status': newStatus});
+      if (!mounted) return;
+
       setState(() => _isOnline = !_isOnline);
+
       if (newStatus == 'ONLINE') {
-        if (_listenerId != null) socketService.goOnline(_listenerId!);
+        if (_listenerId != null) await socketService.goOnline(_listenerId!);
+        _startPresenceHeartbeat();
       } else {
         socketService.goOffline();
+        _stopPresenceHeartbeat();
+        // Clear processed calls when going offline.
+        _processedCallIds.clear();
       }
     } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e'), backgroundColor: AppColors.error));
+      debugPrint('❌ Toggle status error: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e'), backgroundColor: AppColors.error),
+        );
+      }
+    } finally {
+      await Future.delayed(const Duration(milliseconds: 500));
+      if (mounted) setState(() => _isTogglingStatus = false);
     }
   }
 
+  // ── Presence heartbeat helpers ──────────────────────────────────────────
+
+  void _startPresenceHeartbeat() {
+    _stopPresenceHeartbeat(); // idempotent — clear any existing timer first
+    debugPrint('[PRESENCE_HB] Starting heartbeat timer (interval: ${_presenceHeartbeatInterval.inSeconds}s)');
+    _presenceHeartbeatTimer = Timer.periodic(_presenceHeartbeatInterval, (_) {
+      if (_isOnline) {
+        socketService.heartbeat();
+        debugPrint('[PRESENCE_HB] ✓ Sent presence:heartbeat');
+      } else {
+        _stopPresenceHeartbeat();
+      }
+    });
+  }
+
+  void _stopPresenceHeartbeat() {
+    if (_presenceHeartbeatTimer != null) {
+      debugPrint('[PRESENCE_HB] Stopping heartbeat timer');
+      _presenceHeartbeatTimer!.cancel();
+      _presenceHeartbeatTimer = null;
+    }
+  }
+
+  // ── Lifecycle ──────────────────────────────────────────────────────────────
+
   @override
-  void dispose() { socketService.off('call:incoming'); socketService.off('call:ended'); super.dispose(); }
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _stopPresenceHeartbeat();
+    // Remove exactly our handlers — does not affect any other widget's listeners.
+    socketService.removeListener('call:incoming',  _onIncomingCall);
+    socketService.removeListener('call:ended',     _onCallEnded);
+    socketService.removeListener('call:cancelled', _onCallCancelled);
+    super.dispose();
+  }
+
+  // ── Utilities ──────────────────────────────────────────────────────────────
 
   String _formatDuration(int? seconds) {
     if (seconds == null || seconds == 0) return '0m';
@@ -168,6 +399,8 @@ class _ListenerDashboardScreenState extends State<ListenerDashboardScreen> {
     if (m == 0) return '${s}s';
     return '${m}m ${s}s';
   }
+
+  // ── Build ──────────────────────────────────────────────────────────────────
 
   @override
   Widget build(BuildContext context) {
@@ -274,7 +507,7 @@ class _ListenerDashboardScreenState extends State<ListenerDashboardScreen> {
                   ),
                 )
               else
-                ...recentCalls.map((call) => _recentCallCard(call)),
+                ...recentCalls.map((call) => _recentCallCard(call as Map<String, dynamic>)),
             ],
           ]),
         ),
@@ -326,4 +559,3 @@ class _ListenerDashboardScreenState extends State<ListenerDashboardScreen> {
     );
   }
 }
-

@@ -6,7 +6,7 @@ export const getProfile = async (userId: string) => {
   const user = await prisma.user.findUnique({
     where: { id: userId },
     include: {
-      profile: true,
+      profile: true,   // includes nickname, photoUrl, gender etc.
       wallet: { select: { balance: true } },
       listener: { select: { id: true, status: true, onlineStatus: true } },
     },
@@ -17,19 +17,29 @@ export const getProfile = async (userId: string) => {
 
 export const updateProfile = async (
   userId: string,
-  data: { name?: string; city?: string; bio?: string; language?: string }
+  data: { name?: string; nickname?: string; city?: string; bio?: string; language?: string; photoUrl?: string }
 ) => {
-  await prisma.user.update({ where: { id: userId }, data: { name: data.name } });
+  if (data.name) {
+    await prisma.user.update({ where: { id: userId }, data: { name: data.name } });
+  }
   const profile = await prisma.userProfile.upsert({
     where: { userId },
-    update: { city: data.city, bio: data.bio, language: data.language },
+    update: {
+      nickname: data.nickname,
+      city: data.city,
+      bio: data.bio,
+      language: data.language,
+      photoUrl: data.photoUrl,
+    },
     create: {
       userId,
       dateOfBirth: new Date('2000-01-01'),
       gender: 'OTHER',
+      nickname: data.nickname,
       city: data.city,
       bio: data.bio,
       language: data.language,
+      photoUrl: data.photoUrl,
     },
   });
   return profile;
