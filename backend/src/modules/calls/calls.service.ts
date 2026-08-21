@@ -174,10 +174,12 @@ export const initiateCall = async (
       });
     });
   } catch (err: any) {
-    // Re-throw AppErrors as-is; convert unexpected transaction errors to 409.
+    // Re-throw AppErrors as-is (they already have a meaningful message).
+    // For unexpected transaction errors (DB connection, constraint, timeout),
+    // do NOT say "Listener is busy" — that is misleading. Use a generic message.
     if (err instanceof AppError) throw err;
     logger.error('[INITIATE_CALL] Transaction failed', err);
-    throw new AppError(409, 'Listener is busy');
+    throw new AppError(503, 'Call could not be started. Please try again.');
   }
 
   // 7. Broadcast BUSY status to all connected clients so home screens update immediately.
