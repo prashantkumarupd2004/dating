@@ -11,33 +11,52 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to EC2 via SSH
+      - name: Deploy to EC2 via SSH (PM2)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          command_timeout: 10m
           script: |
             set -e
 
-            # Pull latest code
-            cd /home/${{ secrets.EC2_USER }}/dating-app
+            APP_DIR="/home/${{ secrets.EC2_USER }}/dating-app"
+            cd $APP_DIR
+
+            # 1. Pull latest code from GitHub
+            echo "📦 Pulling latest code..."
             git pull origin main
 
-            # Write backend .env from GitHub secret
-            echo "${{ secrets.BACKEND_ENV }}" > backend/.env
+            # 2. Write backend .env from GitHub secret (if secret is set)
+            if [ -n "${{ secrets.BACKEND_ENV }}" ]; then
+              echo "${{ secrets.BACKEND_ENV }}" > backend/.env
+              echo "✅ backend/.env updated"
+            fi
 
-            # Write admin .env from GitHub secret
-            echo "${{ secrets.ADMIN_ENV }}" > admin/.env.local
+            # 3. Install dependencies (production only)
+            echo "📦 Installing backend dependencies..."
+            cd backend
+            npm ci --omit=dev
 
-            # Run DB migrations (no interactive prompt in production)
-            docker compose run --rm backend npx prisma migrate deploy
+            # 4. Generate Prisma client
+            echo "🔧 Generating Prisma client..."
+            npx prisma generate
 
-            # Rebuild and restart containers (zero-downtime rolling restart)
-            docker compose build --no-cache
-            docker compose up -d --remove-orphans
+            # 5. Run any pending DB migrations (safe in production)
+            echo "🗃️ Running DB migrations..."
+            npx prisma migrate deploy
 
-            # Remove dangling images to free disk
-            docker image prune -f
+            # 6. Build TypeScript → dist/
+            echo "🔨 Building TypeScript..."
+            npm run build
 
-            echo "✅ Deployment complete"
+            # 7. Reload backend with PM2 (zero-downtime)
+            echo "🚀 Reloading PM2 process..."
+            pm2 reload milan-backend --update-env
+
+            # 8. Save PM2 state so it survives reboots
+            pm2 save
+
+            echo "✅ Deployment complete!"
+            pm2 list
