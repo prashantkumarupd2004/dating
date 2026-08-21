@@ -200,7 +200,7 @@ export const initiateCall = async (
       fcmTokens,
       'Incoming Call',
       `${callerName} is calling you`,
-      { type: 'incoming_call', callId: call.id, callType }
+      { type: 'INCOMING_CALL', callId: call.id, callType }
     ).catch(() => {});
   }
 

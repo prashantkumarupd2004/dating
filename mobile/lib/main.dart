@@ -308,9 +308,11 @@ class _DatingAppState extends State<DatingApp> with WidgetsBindingObserver {
     _registerFcmToken();
     messaging.onTokenRefresh.listen(_sendTokenToBackend);
 
-    // Foreground FCM — handled by socket, no extra notification needed
+    // Foreground FCM — if listener gets a call notification while app is open,
+    // route them to dashboard so the socket call:incoming dialog can show.
     _fcmForegroundSub = FirebaseMessaging.onMessage.listen((msg) {
       debugPrint('📩 [FCM] Foreground message: ${msg.data}');
+      _handleFcmCallMessage(msg);
     });
 
     // Background-to-foreground tap
@@ -360,7 +362,8 @@ class _DatingAppState extends State<DatingApp> with WidgetsBindingObserver {
   /// Handles an FCM message for an incoming call (background/killed state).
   void _handleFcmCallMessage(RemoteMessage message) {
     final data = message.data;
-    if (data['type'] != 'INCOMING_CALL') return;
+    // Backend sends 'incoming_call' (lowercase) — check case-insensitively
+    if ((data['type'] as String? ?? '').toUpperCase() != 'INCOMING_CALL') return;
     final callId = data['callId'] as String?;
     if (callId == null) return;
     debugPrint('📞 [FCM] Routing to listener dashboard for call: $callId');
