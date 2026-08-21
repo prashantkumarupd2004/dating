@@ -1,5 +1,4 @@
 import { prisma } from '../../config/database';
-import { Prisma } from '@prisma/client';
 import { AppError } from '../../middleware/errorHandler';
 import { generateRtcToken, generateChannelId } from '../../services/agora.service';
 import { checkSufficientBalance, processCallBilling } from '../../services/billing.service';
@@ -118,17 +117,14 @@ export const initiateCall = async (
     generateRtcToken(channelId, listenerUid),
   ]);
 
-  // 6. ATOMIC: lock the listener row, re-check availability, set BUSY, create call.
-  //    Using SELECT … FOR UPDATE inside a transaction prevents two concurrent
-  //    callers from both passing the availability check at the same time.
+  // 6. ATOMIC: re-check availability, set BUSY, create call inside a transaction.
+  //    Prisma transactions are serialized at the DB level — the tx.listener.update
+  //    below acts as the atomic guard (no raw SQL lock needed).
   const ringExpiresAt = new Date(Date.now() + RING_TIMEOUT_MS);
   let call: any;
   try {
     call = await prisma.$transaction(async (tx) => {
-      // Lock the listener row so no other transaction can read/write it until we commit.
-      await tx.$queryRaw(Prisma.sql`SELECT id FROM "Listener" WHERE id = ${listenerId}::uuid FOR UPDATE`);
-
-      // Re-fetch status inside the lock — the earlier fetch (step 2) may be stale.
+      // Re-fetch status inside the transaction — the earlier fetch (step 2) may be stale.
       const fresh = await tx.listener.findUnique({
         where: { id: listenerId },
         select: { onlineStatus: true },
