@@ -1,4 +1,5 @@
 import { prisma } from '../../config/database';
+import { Prisma } from '@prisma/client';
 import { AppError } from '../../middleware/errorHandler';
 import { generateRtcToken, generateChannelId } from '../../services/agora.service';
 import { checkSufficientBalance, processCallBilling } from '../../services/billing.service';
@@ -125,7 +126,7 @@ export const initiateCall = async (
   try {
     call = await prisma.$transaction(async (tx) => {
       // Lock the listener row so no other transaction can read/write it until we commit.
-      await tx.$executeRaw`SELECT id FROM "Listener" WHERE id = ${listenerId}::uuid FOR UPDATE`;
+      await tx.$queryRaw(Prisma.sql`SELECT id FROM "Listener" WHERE id = ${listenerId}::uuid FOR UPDATE`);
 
       // Re-fetch status inside the lock — the earlier fetch (step 2) may be stale.
       const fresh = await tx.listener.findUnique({
